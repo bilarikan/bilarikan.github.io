@@ -1,5 +1,6 @@
-# This is my personal page based on Starlight
+# This is my personal page at bil.arikan.ca 
 
+## It's based on Starlight
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
 ```
@@ -7,7 +8,7 @@ npm create astro@latest -- --template starlight
 ```
 ## 🚀 Project Structure
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+Inside this Astro + Starlight project there are the following folders and files:
 
 ```
 .
