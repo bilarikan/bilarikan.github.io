@@ -6,20 +6,31 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Bil Arikan',
+			title: '',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
-    			{ label: 'Home', link: '/' },				{
-					label: 'Guides',
+				{ label: 'Bil Arikan', link: '/'},							
+
+				{
+					label: 'Projects',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Project example', slug: 'projects/example' },
 					],
 				},
+
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Notebook',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'Notebook example', slug: 'notebook/example' },
+					],
 				},
+
+				{ label: 'Profile', link: 'profile' },	
+
+				{ label: 'Contact', link: 'contact' },				
+
 			],
 			customCss: ['./src/styles/custom.css'],
 		}),
