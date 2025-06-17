@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Bil Arikan',
+			title: '',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{ label: 'Bil Arikan', link: '/'},							
@@ -27,7 +27,7 @@ export default defineConfig({
 					],
 				},
 
-				{ label: 'Profile', link: 'profile' },	
+				{ label: 'About', link: 'about' },	
 
 				{ label: 'Contact', link: 'contact' },				
 
