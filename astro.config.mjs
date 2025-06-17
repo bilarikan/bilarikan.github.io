@@ -7,7 +7,11 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: '',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/bilarikan' },
+				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/bilarikan/' },
+				{ icon: 'mastodon', label: 'Mastodon', href: 'https://mastodon.social/@bilarikan' }
+			],
 			sidebar: [
 				{ label: 'Bil Arikan', link: '/'},							
 
