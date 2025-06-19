@@ -15,21 +15,15 @@ export default defineConfig({
 			],
 			sidebar: [
 				{ label: 'About', link: 'about' },	
-				{ label: 'Contact', link: 'contact' },		
+				{ label: 'Contact', link: 'contact' },
+				{ label: 'Projects', link: 'projects' },
 				{
 					label: 'Notebook',
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Notebook example', slug: 'notebook/example' },
 					],
-				},
-				{
-					label: 'Projects',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Project example', slug: 'projects/example' },
-					],
-				},		
+				},	
 			],
 			customCss: ['./src/styles/custom.css'],
 		}),

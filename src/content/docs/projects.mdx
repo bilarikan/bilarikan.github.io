@@ -1,0 +1,30 @@
+---
+title: Projects
+description: Welcome to my personal page.
+# template: splash
+tableOfContents: false
+prev: false
+next: false
+hero:
+  tagline: Welcome to my personal page
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Take a look at my :
+
+<CardGrid>
+	<Card title="Projects" icon="add-document">
+		<a href="/projects/example/">Projects I've worked on</a>
+	</Card>
+	<Card title="Notebook" icon="open-book">
+		<a href="/notebook/example/">Thoughts, readings and interests</a>
+	</Card>
+	<Card title="About" icon="pencil">
+		<a href="/about/">Profile and past experience</a>
+	</Card>
+	<Card title="Contact" icon="setting">
+		<a href="/contact/">Contact details to get in touch</a>
+	</Card>
+</CardGrid>
+
