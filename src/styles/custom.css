@@ -2,6 +2,8 @@
   --sl-content-width: 70rem;
 }
 
+/* Unhiding the site serch, but keeping the hidding code for future use
 site-search {
   display: none !important;
 }
+*/

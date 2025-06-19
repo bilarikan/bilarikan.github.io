@@ -6,23 +6,16 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: '',
+			title: 'Bil Arikan',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/bilarikan' },
 				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/bilarikan/' },
-				{ icon: 'mastodon', label: 'Mastodon', href: 'https://mastodon.social/@bilarikan' }
+				{ icon: 'mastodon', label: 'Mastodon', href: 'https://mastodon.social/@bilarikan' },
+				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/bilarikan.bsky.social' }
 			],
 			sidebar: [
-				{ label: 'Bil Arikan', link: '/'},							
-
-				{
-					label: 'Projects',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Project example', slug: 'projects/example' },
-					],
-				},
-
+				{ label: 'About', link: 'about' },	
+				{ label: 'Contact', link: 'contact' },		
 				{
 					label: 'Notebook',
 					items: [
@@ -30,11 +23,13 @@ export default defineConfig({
 						{ label: 'Notebook example', slug: 'notebook/example' },
 					],
 				},
-
-				{ label: 'About', link: 'about' },	
-
-				{ label: 'Contact', link: 'contact' },				
-
+				{
+					label: 'Projects',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'Project example', slug: 'projects/example' },
+					],
+				},		
 			],
 			customCss: ['./src/styles/custom.css'],
 		}),
