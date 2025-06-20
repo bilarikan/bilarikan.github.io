@@ -8,10 +8,11 @@ export default defineConfig({
 		starlight({
 			title: 'Bil Arikan',
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/bilarikan' },
+
 				{ icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/bilarikan/' },
 				{ icon: 'mastodon', label: 'Mastodon', href: 'https://mastodon.social/@bilarikan' },
-				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/bilarikan.bsky.social' }
+				{ icon: 'blueSky', label: 'Bluesky', href: 'https://bsky.app/profile/bilarikan.bsky.social' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/bilarikan' }
 			],
 			sidebar: [
 				{ label: 'About', link: 'about' },	
@@ -21,7 +22,7 @@ export default defineConfig({
 					label: 'Notebook',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Notebook example', slug: 'notebook/example' },
+						{ label: 'My first post on the personal site', slug: 'notebook/my-first-post-on-the-personal-site' },
 					],
 				},	
 			],
