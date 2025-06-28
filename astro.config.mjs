@@ -22,6 +22,8 @@ export default defineConfig({
 					label: 'Notebook',
 					items: [
 						// Each item here is one entry in the navigation menu.
+						{ label: 'Notebook Home', link: 'notebook' },
+						{ label: 'Narrative Planning: thinking through a new project', link: 'thinking-through-a-new-project-ai-storyteller-for-multilevel-planning' },
 						{ label: 'My first post on the personal site', slug: 'notebook/my-first-post-on-the-personal-site' },
 					],
 				},	
