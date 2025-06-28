@@ -6,15 +6,15 @@ date: 2025-06-20
 
 ## First Post: starting the personal site
 
-The impulse to create this space has been coming to me for a while. Now feels like the right time to start it. The reasons are mostly revolving around learning, practice, and the want for my own intellectual space:
+The impulse to create this space has been coming to me for a while. Now feels like the right time to start it. The reasons are mostly revolving around learning, practice, and the want for privately maintained intellectual space:
 
 ### A Personal Repository for Evolving Thoughts
 
-I've felt the growing need for a dedicated place to develop and document my thinking. This includes topics spanning learning methodologies, technology trends, approaches to performance measurement, and strategies for data architecture. This site will serve as an external view, a place where ideas can be documented.
+I've felt the growing need for a place to develop and curate thoughts about topics. This includes topics spanning learning methodologies, technology trends, approaches to performance measurement, and strategies for learning performance data collection. 
 
 ### Deepening Astro and Static Site Workflow Mastery
 
-This project is a deliberate exercise in solidifying my skills with the Astro web framework. I want to immerse myself further in the practicalities of the static site generation (SSG) workflow, truly understanding the interplay of HTML, CSS, JavaScript, and Markdown in a real-world context. I'm simply getting the reps in.
+This project is a deliberate exercise in solidifying my skills with the Astro web framework and wering with markdown file formats in generla. I want to immerse myself further in the practicalities of the static site generation (SSG) workflow, truly understanding the interplay of HTML, CSS, JavaScript, and Markdown in a real-world context.
 
 ### Cultivating Markdown Fluency for Knowledge Management
 
@@ -22,7 +22,7 @@ My exploration of Obsidian and the slip-box (Zettelkasten) method for ideation a
 
 ### A Space Beyond Social Feeds
 
-While social platforms offer reach, they often come with inherent limitations—ephemeral content, algorithmic curation, and a sense of not truly owning the content. This site provides an antidote: a personal, unfiltered space to develop thoughts without external pressures or the noise of a given platform's engagement mechanisms.
+While social platforms offer reach, they often come with inherent limitations—ephemeral content, algorithmic curation, and a sense of not truly owning the content. I wan a personally-led, unfiltered space to develop thoughts without external pressures or the noise of a given platform's engagement mechanisms.
 
 
-So, this is the baseline. I anticipate the site will naturally grow and shift focus as my interests and learning priorities change.
+So, this is the baseline. I anticipate the site will  grow and shift focus as my interests and priorities change.
