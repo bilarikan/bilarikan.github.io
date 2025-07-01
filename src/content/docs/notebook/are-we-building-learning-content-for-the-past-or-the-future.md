@@ -54,5 +54,7 @@ Andrej Karpathy's presentation touched on many other fascinating concepts—from
 
 #### As learning professionals, we have a choice
 We can continue to focus on building beautiful, isolated experiences inside the walled gardens of our current tools. Or, we can start thinking like architects. We can design the foundational knowledge infrastructure that will empower both our human employees and their future AI partners. The first step is to stop creating content that is locked in the past and start building knowledge for the agents of the future.
+
 ---
-You can find Andrej Karpathy's full Y Combinator presentation here. I also first came across this talk via the excellent Department of Product channel.
+
+You can find Andrej Karpathy's full Y Combinator presentation [here](https://youtu.be/LCEmiRjPEtQ?si=2UfttzDJj3vDRbQY). I also first came across this talk via the excellent [Department of Product channel](https://youtu.be/p3BG2tPkG3s?si=aoasFIhqHaeVipjr).
