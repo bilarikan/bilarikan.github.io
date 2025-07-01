@@ -1,12 +1,18 @@
+---
+title: Thinking through a AI storyteller for multilevel planning
+description: A GenAI-powered tool to structure your goals, triage your schedule, and reflect on your progress by telling the story of your accomplishments.
+date: 2025-07-01
+---
+
 ## Thinking Through My Next Project: A Narative Planner
-I've been feeling it a lot lately—the constant pull in a dozen different directions. I want to be a present and engaged parent and partner, excel in challenging projects at work, consistently develop my skills, maintain my physical health, and still find quiet moments for reflection. It feels like a modern life juggling act, and I've been thinking that just keeping the balls in the air isn't enough. I want to feel like I'm moving forward with intention.
+I've been feeling it a lot lately—the constant pull in a dozen different directions. I want to be a present and engaged father and husband, further knowledge domain expertise, excel in challenging projects at work, consistently develop my skills, maintain my physical health, and still find quiet moments for reflection setting intentions. It feels like modern life is a plate spinning act, and I've been thinking that just keeping the balls in the air isn't enough. I want to feel like I'm moving forward with intention.
 
-I've long been inspired by thinkers like Cal Newport or Andrew Hartman and their ideas on multi-level planning, schedule triage, and deep work. I've read the books and listened to the podcasts, and I'm convinced that a systematic, but playful, interactive, and creative, approach is the key for me to not just manage the chaos, but to weave it into a meaningful narrative.
+I've read from thinkers like Cal Newport or Andrew Hartman and their ideas on multi-level planning, activity prioritization, schedule triage, and deep meanigngful work. I've read the books and listened to the podcasts, and I'm starting to think that a systematic, but playful, interactive, and creative, approach is the key for me to not just manage the chaos, but to weave it into a meaningful narrative.
 
-The thing is, templates and systems on their own can feel static. The real challenge, I think, is making them a living, breathing part of my daily routine. So, I've decided to noodle a new concept and build my own tooling to help with this. My goal is to create an AI-powered narrative multi-level planner inside Obsidian, my favorite note-taking app, to help me not only plan my day, week, quarter and life but also help narrate the story I’m living.
+The thing is, templates and systems on their own can feel static, proformas that you simply fill out and need to think throug later, but that later never comes. The real challenge, I think, is making them a living, breathing part of my daily routine. Maybe an AI-powered narrative multi-level planner inside a notetaking tool, like Obsidian, my favorite note-taking app, to help me not only plan my day, week, quarter and life but also help narrate the story I’m living.
 
 ## The Planning: A Strategic Partner in Obsidian
-Obsidian is more than just a place where I store notes, it's a place to explore the collections of thoughts and create something of them. I love that it's local-first, deeply personal, and built on a foundation of networked thought. That's why I think it's the perfect home for the personalized planning system I have in mind.
+Obsidian is more than just a place where I store notes, it's a place to collect my thoughts, then explore them to maybe create something of them. I love that it's local-first with flat Markdown files rather than some complex file format I can never access without Obsidian. That's why I think it's the perfect home for the personalized planning system I have in mind.
 
 The core of what I want to build is a multi-level planning framework that connects my highest aspirations to my daily actions:
 
