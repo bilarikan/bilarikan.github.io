@@ -1,7 +1,7 @@
 ---
 title: Thinking through a AI storyteller for multilevel planning
 description: A GenAI-powered tool to structure your goals, triage your schedule, and reflect on your progress by telling the story of your accomplishments.
-date: 2025-07-01
+date: 2025-06-28
 tableOfContents:
   minHeadingLevel: 4
   maxHeadingLevel: 5

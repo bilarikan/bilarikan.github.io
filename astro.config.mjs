@@ -22,6 +22,7 @@ export default defineConfig({
 					label: 'Notebook',
 					items: [
 						// Each item here is one entry in the navigation menu.
+						{ label: 'Are We Building Learning for Past or Future?', link: 'notebook/are-we-building-learning-content-for-the-past-or-the-future' },
 						{ label: 'AI storyteller for multilevel planning', link: 'notebook/thinking-through-a-new-project-ai-storyteller-for-multilevel-planning' },
 						{ label: 'My first post on the personal site', slug: 'notebook/my-first-post-on-the-personal-site' },
 					],
