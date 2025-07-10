@@ -16,8 +16,6 @@ export default defineConfig({
 			],
 			sidebar: [
 				{ label: 'About', link: 'about' },	
-				{ label: 'Contact', link: 'contact' },
-				{ label: 'Projects', link: 'projects' },
 				{
 					label: 'Notebook',
 					items: [
