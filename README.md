@@ -102,7 +102,7 @@ hugo new site . --force
 
 ---
 
-## New Hugo Project Structure
+## New Hugo Structure
 
 After the migration, the final project structure looks like:
 
