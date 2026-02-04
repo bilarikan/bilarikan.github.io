@@ -1,4 +1,4 @@
-# bil.arikan.ca - Personal Website
+# bil.arikan.ca - Personal Website - Now with Hugo
 
 A blazingly fast personal website built with **Hugo** and the **Congo** theme, hosted on GitHub Pages with a custom domain.
 
