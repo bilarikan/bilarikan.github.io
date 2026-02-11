@@ -1,0 +1,11 @@
+baseURL = "https://bil.arikan.ca/"
+theme = "congo"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+summaryLength = 30
+
+[pagination]
+  pagerSize = 10
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

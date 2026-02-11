@@ -1,0 +1,21 @@
+languageCode = "en-US"
+languageName = "English"
+languageDirection = "ltr"
+weight = 1
+
+title = "Bil Arikan"
+
+[params]
+  dateFormat = "2 January 2006"
+  mainSections = ["posts", "projects"]
+  description = "Bil Arikan's personal site and notes."
+
+[params.author]
+  name = "Bil Arikan"
+  headline = "Learner and tinkerer"
+  bio = "Exploring ideas at the intersection of learning, systems, and software."
+  links = [
+    { github = "https://github.com/bilarikan" },
+    { linkedin = "https://www.linkedin.com/in/bilarikan/" },
+    { link = "https://bil.arikan.ca" }
+  ]
