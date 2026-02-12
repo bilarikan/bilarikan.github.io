@@ -3,6 +3,6 @@ title: "Bil Arikan"
 description: "Notes and projects from Bil Arikan."
 ---
 
-Welcome to my new Hugo + Congo site.
+I'm working the infrastructure for learning performance. Focused on AI implementation, in-product learning experiences, and business-outcome data pipelines.
 
-This site is the continuation of `bil.arikan.ca`, now rebuilt for a simpler authoring workflow and faster deployments on GitHub Pages.
+Reach out via email at `bil at arikan dot ca`, or connect with me on LinkedIn, GitHub, X, and Bluesky.

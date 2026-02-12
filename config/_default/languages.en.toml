@@ -12,10 +12,12 @@ title = "Bil Arikan"
 
 [params.author]
   name = "Bil Arikan"
-  headline = "Learner and tinkerer"
-  bio = "Exploring ideas at the intersection of learning, systems, and software."
+  headline = "Learning performance infrastructure"
+  bio = "I'm working the infrastructure for learning performance. Focused on AI implementation, in-product learning experiences, and business-outcome data pipelines."
   links = [
-    { github = "https://github.com/bilarikan" },
+    { email = "mailto:bil@arikan.ca" },
     { linkedin = "https://www.linkedin.com/in/bilarikan/" },
-    { link = "https://bil.arikan.ca" }
+    { github = "https://github.com/bilarikan" },
+    { x-twitter = "https://x.com/bilarikan" },
+    { bluesky = "https://bsky.app/profile/bilarikan.bsky.social" }
   ]
