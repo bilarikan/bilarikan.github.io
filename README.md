@@ -1,6 +1,6 @@
 # bil.arikan.ca - Personal Website - Now with Hugo
 
-A blazingly fast personal website built with **Hugo** and the **Congo** theme, hosted on GitHub Pages with a custom domain.
+Mp website built with **Hugo** and the **Congo** theme, hosted on GitHub Pages with a custom domain.
 
 ## Migration Journey: Astro → Hugo
 
@@ -23,7 +23,7 @@ This repository documents the transition from an Astro-based static site to a Hu
 
 ---
 
-## Project Overview
+## Overview
 
 This is a personal website and blog powered by:
 - **Static Site Generator**: Hugo (written in Go)
@@ -31,22 +31,6 @@ This is a personal website and blog powered by:
 - **Hosting**: GitHub Pages
 - **Custom Domain**: bil.arikan.ca
 - **Deployment**: GitHub Actions CI/CD
-
-### Why Hugo and Congo?
-
-**Hugo advantages:**
-- Ultra-fast build times (milliseconds for large sites)
-- Simple directory structure and intuitive file organization
-- Powerful template system with built-in functions
-- Excellent documentation and large community
-
-**Congo theme advantages:**
-- Modern, minimal design
-- Excellent customization options
-- Fast loading times
-- Built-in dark mode
-- Responsive and accessible
-- Well-maintained by the community
 
 ---
 

@@ -20,7 +20,7 @@ enableImageWebp = true
 [homepage]
   layout = "profile"
   showRecent = true
-  recentLimit = 6
+  recentLimit = 10
 
 [article]
   showDate = true
