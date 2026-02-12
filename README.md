@@ -11,7 +11,6 @@ This repository documents the transition from an Astro-based static site to a Hu
 ## Table of Contents
 
 - [Project Overview](#project-overview)
-- [Why Hugo and Congo?](#why-hugo-and-congo)
 - [Migration Process](#migration-process)
 - [Project Structure](#project-structure)
 - [Installation & Setup](#installation--setup)
@@ -380,18 +379,3 @@ This Hugo + Congo setup provides:
 - [Hugo Official Documentation](https://gohugo.io/documentation/)
 - [Congo Theme GitHub](https://github.com/jpanther/congo)
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
-- [Migration Guide](https://rwgb.github.io/posts/github-pages-hugo/)
-
----
-
-**Site:** https://bil.arikan.ca | **Repository:** https://github.com/bilarikan/bilarikan.github.io
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
