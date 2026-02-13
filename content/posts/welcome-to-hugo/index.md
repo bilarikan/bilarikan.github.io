@@ -26,7 +26,7 @@ In this site, I am aiming to:
 I am using a simple cycle: identify a problem, prototype, test, and capture what changed.
 
 {{< mermaid >}}
-flowchart LR
+flowchart TD
   A[Observe a problem] --> B[Write a short note]
   B --> C[Prototype with code or content]
   C --> D[Pair-program with an AI agent]
@@ -38,36 +38,13 @@ In this flow, AI helps with speed, but decisions stay human. I use agents to dra
 
 ## Current skill focus
 
-<!-- prettier-ignore-start -->
-{{< chart >}}
-type: 'bar',
-data: {
-  labels: [
-    'Learning Architecture',
-    'Knowledge Management',
-    'Hugo Workflow',
-    'Analytics and Measurement',
-    'Pair-Programming with Agents'
-  ],
-  datasets: [
-    {
-      label: 'Current Focus',
-      data: [8, 9, 8, 7, 9],
-      backgroundColor: 'rgba(59, 130, 246, 0.55)'
-    }
-  ]
-},
-options: {
-  responsive: true,
-  scales: {
-    y: {
-      beginAtZero: true,
-      max: 10
-    }
-  }
-}
-{{< /chart >}}
-<!-- prettier-ignore-end -->
+Right now, my focus is strongest on practical skills that improve delivery speed and decision quality in real projects.
+
+- Learning architecture and performance support design
+- Markdown-based knowledge management workflows
+- Hugo workflow and static publishing operations
+- Analytics and measurement thinking
+- Pair-programming with AI agents for prototyping and validation
 
 ## What I will publish here
 
