@@ -41,10 +41,10 @@ In this flow, AI helps with speed, but decisions stay human. I use agents to dra
 Right now, my focus is strongest on practical skills that improve delivery speed and decision quality in real projects.
 
 - Learning architecture and performance support design
-- Markdown-based knowledge management workflows
-- Hugo workflow and static publishing operations
-- Analytics and measurement thinking
+- Markdown-based knowledge management workflows for AI Agents
+- Performance measurement data gathering and presentation architecture
 - Pair-programming with AI agents for prototyping and validation
+- Learning Experiences driven by product-led and Agent collaboration principles
 
 ## What I will publish here
 
