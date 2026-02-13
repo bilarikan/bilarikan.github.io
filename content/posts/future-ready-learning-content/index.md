@@ -2,65 +2,69 @@
 title: "Building Learning Content for Humans and Agents"
 date: 2026-02-13T00:00:00-05:00
 description: "How L&D teams can move from locked course packages to open knowledge assets that work for both people and AI assistants."
-summary: "A practical model for future-ready learning content: human-first experiences built on machine-readable knowledge."
+summary: "A working model for designing learning content that supports both human understanding and agent retrieval."
 tags: ["learning-design", "ai-agents", "knowledge-management", "markdown"]
 categories: ["Learning Architecture"]
 draft: false
 ---
 
-I recently revisited Andrej Karpathy's YC talk, especially his point about building for agents and future infrastructure. It pushed me to reframe a core Learning & Development (L&D) question:
+I came back to Andrej Karpathy's YC talk with a learning-design lens, and one question stayed with me:
 
 Are we building learning content for the way work used to happen, or for the way work is starting to happen now?
 
-## The Shift We Need to Design For
+## Goal
 
-We are moving into a model of partial autonomy: people do the judgment-heavy work, while AI assistants help with navigation, retrieval, summarization, and execution support.
+In this post, I want to map a practical shift for L&D teams:
 
-In that world, learning content has two audiences:
+Move from course packages as final outputs to open knowledge assets that can support both humans and agents.
 
-1. People who need clarity and context.
-2. AI agents that need structure and access.
+## Working assumption
 
-Most current e-learning stacks still optimize only for audience #1.
+My assumption is that we are entering a partial-autonomy model. Humans do judgment-heavy work. Agents help with retrieval, summarization, and workflow support.
 
-## Why Traditional Course Packages Break in an Agent Workflow
+In this case, learning content has two audiences:
+
+1. Humans who need context, clarity, and practice.
+2. Agents that need accessible structure.
+
+Many current learning stacks still optimize mostly for audience #1.
+
+## Current architecture gap
 
 Tools like Storyline, Camtasia, or Vyond can produce strong visual learning experiences. The issue is not design quality. The issue is content architecture.
 
-Published output is usually:
+In many implementations, output is:
 
 1. A complex web app (heavy DOM + JavaScript state).
 2. Tool-specific, proprietary runtime logic.
 3. Wrapped inside SCORM for LMS tracking.
 
-That architecture is good for launch-and-track workflows, but poor for machine retrieval.
+This works for launch-and-track, but it is weak for retrieval across systems.
 
-If someone asks an assistant, "Summarize our five critical safety steps," the answer should be immediate. In many SCORM-based systems, it is not.
+If someone asks an assistant, "What are our five critical safety steps?", the system should answer quickly and correctly. In many SCORM-heavy setups, that is hard.
 
-## From Course-First to Knowledge-First
+## Model I am testing
 
-The core move is simple:
+My working model is course experience on top of open knowledge assets.
 
-Design learning experiences on top of open, structured knowledge assets, not the other way around.
-
-Markdown is one practical format because it is:
+Markdown is useful here because it is:
 
 1. Easy for humans to read and edit.
-2. Easy for AI systems to parse.
-3. Portable across web, PDF, docs, and APIs.
+2. Easy for machines to parse.
+3. Portable across multiple outputs.
 
 {{< mermaid >}}
 flowchart LR
-  A[Expert Knowledge] --> B[Markdown Knowledge Base]
-  B --> C[Human Learning Experience]
-  B --> D[AI Assistant Retrieval]
-  C --> E[Practice and Performance]
+  A[Subject Matter Expertise] --> B[Open Structured Knowledge]
+  B --> C[Human Learning Experiences]
+  B --> D[Agent Retrieval and Guidance]
+  C --> E[Improved Performance]
   D --> E
 {{< /mermaid >}}
 
-## Quick Comparison of Content Formats
+## Directional comparison
 
-The values below are directional, but the pattern is consistent across most organizations.
+These values are directional, but this is the pattern I keep seeing in practice.
 
 <!-- prettier-ignore-start -->
 {{< chart >}}
@@ -92,23 +96,34 @@ options: {
 {{< /chart >}}
 <!-- prettier-ignore-end -->
 
-## A Practical 90-Day Start
+## Practical pilot (90 days)
 
-You do not need to rebuild everything.
+I do not think teams need a full rebuild to start. A narrow pilot is enough.
 
 1. Pick one high-value learning journey (for example onboarding or safety).
 2. Extract core procedures into structured Markdown docs.
-3. Keep existing SCORM modules, but link them to the open knowledge source.
-4. Add a retrieval layer so assistants can answer from those docs.
-5. Measure time-to-answer and performance support usage.
+3. Keep existing course modules, but connect them to the open source content.
+4. Add retrieval so assistants can answer from those same docs.
+5. Track time-to-answer and on-the-job support usage.
 
-This gives you a low-risk bridge from legacy course delivery to future-ready learning infrastructure.
+This creates a low-risk bridge from legacy delivery to future-ready learning infrastructure.
 
-## Final Thought
+## How I am building capability through this
 
-The real opportunity is not "AI features in authoring tools." It is designing a knowledge foundation that both people and assistants can use.
+This is also how I am developing my own capabilities:
 
-When knowledge is open, structured, and reusable, learning teams stop producing one-time courses and start building long-term capability infrastructure.
+1. Markdown-first knowledge design for reusable content operations.
+2. Information architecture for retrieval quality.
+3. Pair-programming with AI agents to prototype faster.
+4. Stronger judgment loops: generate with AI, decide with human responsibility.
+
+In short: architect openly, automate selectively, and keep accountability human.
+
+## Next step
+
+For my next iteration, I want to run this model on one concrete workflow end-to-end, then compare outcomes against a traditional course-only flow.
+
+The core idea remains: the bigger opportunity is not only AI features in tools. It is the knowledge architecture underneath those tools.
 
 ---
 

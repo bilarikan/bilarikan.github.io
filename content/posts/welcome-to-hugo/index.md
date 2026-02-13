@@ -1,33 +1,84 @@
 ---
-title: "Welcome to the New Site"
+title: "Welcome: This Site as a Learning Lab"
 date: 2026-02-11T00:00:00-05:00
-description: "The first post on the Hugo + Congo migration."
-tags: ["hugo", "congo", "migration"]
+description: "Why this site exists and how I use it to practice learning design, knowledge systems, and pair-programming with AI agents."
+summary: "A practical welcome post: goals, current skill focus, and the workflow I am building in public."
+tags: ["hugo", "congo", "learning", "knowledge-management", "ai-agents", "pair-programming"]
 categories: ["Website"]
 draft: false
 ---
 
-This is the first post after migrating `bil.arikan.ca` from Astro to Hugo with the Congo theme.
+This is the first post after moving `bil.arikan.ca` from Astro to Hugo.
 
-The goal of the migration is to keep writing friction low while preserving fast builds and simple deployment through GitHub Pages.
+The migration matters, but the stack is not the goal. The goal is to have a stable space where I can run experiments, document outcomes, and improve my practice over time.
 
-Below is an example of a mermaid diagram.
+## Goal
+
+In this site, I am aiming to:
+
+1. Develop ideas on learning design and performance support.
+2. Build better Markdown-first knowledge workflows.
+3. Practice pair-programming with AI agents in practical tasks.
+4. Keep a long-term record in a space I fully own.
+
+## Current approach
+
+I am using a simple cycle: identify a problem, prototype, test, and capture what changed.
 
 {{< mermaid >}}
-graph LR;
-A[Lemons]-->B[Lemonade];
-B-->C[Profit]
+flowchart LR
+  A[Observe a problem] --> B[Write a short note]
+  B --> C[Prototype with code or content]
+  C --> D[Pair-program with an AI agent]
+  D --> E[Refine with human judgment]
+  E --> F[Publish and iterate]
 {{< /mermaid >}}
 
-Below is an example of a chart.js chart.
+In this flow, AI helps with speed, but decisions stay human. I use agents to draft, test, and check; then I edit for clarity and intent.
 
+## Current skill focus
+
+<!-- prettier-ignore-start -->
 {{< chart >}}
 type: 'bar',
 data: {
-  labels: ['Tomato', 'Blueberry', 'Banana', 'Lime', 'Orange'],
-  datasets: [{
-    label: '# of votes',
-    data: [12, 19, 3, 5, 3],
-  }]
+  labels: [
+    'Learning Architecture',
+    'Knowledge Management',
+    'Hugo Workflow',
+    'Analytics and Measurement',
+    'Pair-Programming with Agents'
+  ],
+  datasets: [
+    {
+      label: 'Current Focus',
+      data: [8, 9, 8, 7, 9],
+      backgroundColor: 'rgba(59, 130, 246, 0.55)'
+    }
+  ]
+},
+options: {
+  responsive: true,
+  scales: {
+    y: {
+      beginAtZero: true,
+      max: 10
+    }
+  }
 }
 {{< /chart >}}
+<!-- prettier-ignore-end -->
+
+## What I will publish here
+
+Most posts will fall into one of these categories:
+
+1. Working notes from experiments.
+2. Practical guides I can reuse.
+3. Reflections on what worked, what failed, and what I changed next.
+
+For now, the standard is usefulness over polish. If a post helps me make better decisions in the next iteration, it has done its job.
+
+## Next step
+
+My next focus is to keep tightening the loop between writing, prototyping, and measurement, especially in projects where learning design and software workflow overlap.
