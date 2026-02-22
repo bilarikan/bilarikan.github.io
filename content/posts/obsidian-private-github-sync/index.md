@@ -144,6 +144,14 @@ The plugin uses your system Git, so make sure `git` works in Terminal.
 
 From there, you can make a change to the file on github.com, close and start Obsidian to do a pull, and validate the full round trip by checking to change is there.
 
+{{< mermaid >}}
+flowchart LR
+  O[Obsidian vault (macOS)] -->|commit| G[Git repo (local)]
+  G -->|push| GH[GitHub private repo]
+  GH -->|pull| G
+  G -->|update working tree| O
+{{< /mermaid >}}
+
 ### 9. Setup on Android
 This section relies on the Obsidian Git community plugin developer’s recommendation to use [GitSync for Android](https://play.google.com/store/apps/details?id=com.viscouspot.gitsync) and the walkthrough from [ViscousPotential](https://viscouspotenti.al/posts/gitsync-all-devices-tutorial).
 
@@ -194,6 +202,26 @@ git push -u origin main
 6. The Obsidian Git plugin setup is the same.
 7. I've read about setting `core.autocrlf` to `true` in the Git settings on Windows, so that it avoids line ending noise when collaborating with macOS. I haven't set this and haven't noticed an issue yet.
 
+{{< mermaid >}}
+flowchart TB
+  subgraph macOS
+    M[Obsidian vault] -->|commit| MG[Git repo (local)]
+  end
+  subgraph Android
+    A[Obsidian vault] -->|sync via GitSync| AG[Git repo (local)]
+  end
+  subgraph Windows
+    W[Obsidian vault] -->|commit| WG[Git repo (local)]
+  end
+
+  MG -->|push| GH[GitHub private repo]
+  AG -->|push| GH
+  WG -->|push| GH
+  GH -->|pull| MG
+  GH -->|pull| AG
+  GH -->|pull| WG
+{{< /mermaid >}}
+
 
 ## Practical pilot
 
@@ -232,4 +260,3 @@ If you are still stuck, back up your notes, delete the mobile vault folder, unin
 The biggest risk is accidentally committing sensitive data. A private repo is still a repo, so I treat the vault like production and avoid API keys, client data, or secrets. If I need secrets, I keep them outside the vault.
 
 Large binary attachments can also bloat the repo. If I store a lot of images or PDFs, I consider Git LFS or a separate attachments folder that is not tracked.
-
