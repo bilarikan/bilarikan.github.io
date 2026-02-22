@@ -180,24 +180,26 @@ Before proceeding, please make sure in the .gitignore file you have the `.obsidi
 
 I test the setup in this order:
 
-1. Create the vault.
+1. Add a test note to the vault.
 2. Push the first commit from Terminal to confirm the remote works.
-3. Enable Obsidian Git and run a manual commit from inside Obsidian.
-4. Enable auto-pull and auto-push once the manual path is stable.
+3. Confirm the change on the Github.com repo.
+4. Add a new line to the test note.
+5. Enable Obsidian Git and run a manual commit from inside Obsidian.
+6. Confirm the change on the Github.com repo.
+7. Enable auto-pull and auto-push on Obsidian on macOS and Android once the manual path is stable.
+
+## Troubleshooting
+
+If there are some challenges with Git or you forgot to add the .obsidian/ folder to .gitignore and the desktop of android obsidian vault has plugins removed, it's usually best to delete all the files (including hidden dot files) and start over. Similarly for android, delete the vault folder on the phone, delete the Obsidian and Gitsync apps from your phone. 
+
+You can backup important notes before starting to delete folders/apps, and paste them back after the Obsidian Git workflow is working correctly between MacOS and Android.
+
+I initially attempted to troublshoot the .obsidian files to be ignored and tried to configure the apps and git in place. Though this gave mixed results and it was ultimately resolved when starting from scratch.
 
 ## Risk or limitation
 
-The biggest risk is accidentally committing sensitive data. A private repo is still a repo, so I treat the vault like production and avoid API keys, client data, or secrets. If I need secrets, I keep them outside the vault or encrypt them before they land in Git.
+The biggest risk is accidentally committing sensitive data. A private repo is still a repo, so I treat the vault like production and avoid API keys, client data, or secrets. If I need secrets, I keep them outside the vault.
 
 Large binary attachments can also bloat the repo. If I store a lot of images or PDFs, I consider Git LFS or a separate attachments folder that is not tracked.
-
-## Windows addition (differences to watch for)
-
-If you are on Windows:
-
-1. Install Git for Windows and confirm `git --version` works in PowerShell or Git Bash.
-2. Use `C:\Users\<you>\Documents\Obsidian\MyVault` as the vault path example.
-3. In Git settings, `core.autocrlf` is usually set to `true` on Windows. That avoids line ending noise when collaborating with macOS.
-4. The Obsidian Git plugin setup is the same. If Git is not found, restart Obsidian after installing Git.
 
 
