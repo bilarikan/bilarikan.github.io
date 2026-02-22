@@ -145,36 +145,55 @@ The plugin uses your system Git, so make sure `git` works in Terminal.
 From there, you can make a change to the file on github.com, close and start Obsidian to do a pull, and validate the full round trip by checking to change is there.
 
 ### 9. Setup on Android
-This section relies on recommendation from Obsidian Git community plugin's developer recommending [Gitsync for Android](https://play.google.com/store/apps/details?id=com.viscouspot.gitsync) and [this guide by ViscousPotential](https://viscouspotenti.al/posts/gitsync-all-devices-tutorial)
+This section relies on the Obsidian Git community plugin developer’s recommendation to use [GitSync for Android](https://play.google.com/store/apps/details?id=com.viscouspot.gitsync) and the walkthrough from [ViscousPotential](https://viscouspotenti.al/posts/gitsync-all-devices-tutorial).
 
-Before proceeding, please make sure in the .gitignore file you have the `.obsidian/` line, as syncing  Obsidian mobile obsidian settings into the desktop vault's .obsidian folder will create some issues with the different community plugins and git configurations of desktop vs mobile.
+Before proceeding, make sure your `.gitignore` includes `.obsidian/`. Syncing mobile `.obsidian` settings into the desktop vault usually creates plugin and config conflicts between desktop and mobile.
 
 1. Install Obsidian for Android.
-2. Create the same vault using a local folder or use folder already on your device.
-3. Install Gitsync app for Android.
-   1. Open GitSync, Select “Let’s Go” on the welcome dialog
-   2. Accept notifications permissions - The app uses these permissions to notify you when sync operations are occurring in the background. There is also an in-app setting to toggle these off.
-   3. Accept “all files access” permission - The app requires this permission to read/write your vault contents to keep it in sync
-   4. Login through the GitHub OAuth option included in the app.
-   5. Make sure you have the GitHub authentication option selected and click the OAuth button
-   6. Authenticate in the browser with your GitHub credentials
-   7. Select the repository name from the list.
-   8. When prompted to select a directory to clone into
-   9. On Android Create a new and empty folder (this will need to be new and separate from any vault’s contents you want to sync in the end)
-    Select the newly created folder to clone into (any contents may be overwritten)
-4. Setup background sync for Android 
-    You can setup auto sync, which is ideal for Obsidian. The app will sync your vault everytime you open or close (background/foreground) a selected app; in this case Obsidian.
-    1. Enable the accessibility service in Gitsync - The app uses this permission to detect when a selected app has been opened or closed
-    2. Add Obsidian to the application list.
-    3. Enable “sync on app(s) opened” and/or “sync on app(s) closed”
-    From here, you could also optionally enable scheduled sync so periodic sync up to as often as every 15 minutes
+2. Install GitSync for Android.
+3. Open GitSync and run the onboarding:
+   1. Select “Let’s Go” on the welcome screen.
+   2. Accept notifications permissions so you can see background sync status.
+   3. Accept “all files access” permission so the app can read and write the vault.
+4. Authenticate with GitHub:
+   1. Choose the GitHub OAuth option.
+   2. Sign in in the browser and approve access.
+   3. Fill in your author details (name and email) when prompted.
+5. Clone the repository:
+   1. Select the repository from the list.
+   2. Create a new empty folder on your device (separate from any existing vault contents).
+   3. Choose that folder as the clone destination.
+6. Open Obsidian and use “Open folder as vault” to open the cloned folder.
+7. If you have the Obsidian Git plugin installed on mobile, disable it for this device to avoid conflicts with GitSync.
+8. Configure background sync in GitSync:
+   1. Enable the accessibility service (used to detect app open/close).
+   2. Add Obsidian to the monitored app list.
+   3. Enable “sync on app opened” and/or “sync on app closed”.
+   4. Optionally enable scheduled sync (as often as every 15 minutes).
 
 ### 10. Setup on Windows
 
 1. Install Git for Windows and confirm `git --version` works in PowerShell or Git Bash.
-2. Use `C:\Users\<you>\Documents\Obsidian\MyVault` as the vault path example.
-3. In Git settings, `core.autocrlf` is usually set to `true` on Windows. That avoids line ending noise when collaborating with macOS.
-4. The Obsidian Git plugin setup is the same. If Git is not found, restart Obsidian after installing Git.
+2. Create a folder for the vault, e.g. `C:\Obsidian\MyVault`
+3. Initialize the repository from Powershell in the vault folder: 
+```Powershell
+git init
+git branch -M main
+git add .
+git commit -m "Initial vault"
+```
+4. Use SSH to setup the connection with Github.com
+   1. Generate an SSH Key: From Powershell `ssh-keygen -t ed25519 -C "your_email@example.com"` (Press Enter a few times to accept defaults).
+   2. Copy the contents of the .pub file created in your C:\Users\YourName\.ssh folder
+   3. Go to Github.com settings > SSH and GPG keys > New Key, past the contents of the .pub file created and confirm adding the SSH key
+5. Complete the initial Git push, types `yes` when asked if you want to continue with the SSH connection
+```Powershell
+git remote add origin git@github.com:<username>/<repo>.git
+git push -u origin main
+```
+6. The Obsidian Git plugin setup is the same.
+7. I've read about setting `core.autocrlf` to `true` in the Git settings on Windows, so that it avoids line ending noise when collaborating with macOS. I haven't set this and haven't noticed an issue yet.
+
 
 ## Practical pilot
 
@@ -190,16 +209,27 @@ I test the setup in this order:
 
 ## Troubleshooting
 
-If there are some challenges with Git or you forgot to add the .obsidian/ folder to .gitignore and the desktop of android obsidian vault has plugins removed, it's usually best to delete all the files (including hidden dot files) and start over. Similarly for android, delete the vault folder on the phone, delete the Obsidian and Gitsync apps from your phone. 
+If the sync starts behaving oddly, I treat it like a clean re-clone problem instead of trying to patch it in place.
 
-You can backup important notes before starting to delete folders/apps, and paste them back after the Obsidian Git workflow is working correctly between MacOS and Android.
+Common issues and the fastest fixes:
 
-I initially attempted to troublshoot the .obsidian files to be ignored and tried to configure the apps and git in place. Though this gave mixed results and it was ultimately resolved when starting from scratch.
+1. **Plugin settings disappear or keep changing**  
+   This usually means `.obsidian/` got synced. Add `.obsidian/` to `.gitignore`, then remove the tracked folder from Git and re-clone on mobile.
+   ```bash
+   git rm -r --cached .obsidian
+   git commit -m "Stop tracking Obsidian settings"
+   git push
+   ```
+2. **GitSync is not auto-syncing**  
+   Re-check that the accessibility service is enabled, Obsidian is added to the app list, and “sync on app opened/closed” is turned on.
+3. **Clone/auth problems**  
+   Re-run OAuth inside GitSync and confirm the repo is visible under your GitHub account.
+
+If you are still stuck, back up your notes, delete the mobile vault folder, uninstall Obsidian and GitSync, then set up again from a clean clone. That path is usually faster than debugging a half-broken state.
 
 ## Risk or limitation
 
 The biggest risk is accidentally committing sensitive data. A private repo is still a repo, so I treat the vault like production and avoid API keys, client data, or secrets. If I need secrets, I keep them outside the vault.
 
 Large binary attachments can also bloat the repo. If I store a lot of images or PDFs, I consider Git LFS or a separate attachments folder that is not tracked.
-
 
