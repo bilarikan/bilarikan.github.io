@@ -39,7 +39,7 @@
 - If revising an old draft from outside repo content, create a new post under `content/posts/` and keep the original source draft untouched unless asked.
 
 ## Author Voice And Writing Style (bil.arikan.ca)
-- Primary voice is first-person practitioner voice (`I`, `my`, `in this post I want to...`), not detached analyst voice.
+- Primary voice is first-person practitioner voice (`I`, `my`, `I built a ...`), not detached analyst voice.
 - Tone should be practical, direct, and iterative: explain what is being tested, why, and what changes next.
 - Prefer concrete statements over abstract language. Prioritize usefulness over polish.
 - Keep claims measured and evidence-aware (for example: `directional`, `in this case`, `for now`, `next iteration`).
