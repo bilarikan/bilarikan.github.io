@@ -146,8 +146,8 @@ From there, you can make a change to the file on github.com, close and start Obs
 
 {{< mermaid >}}
 flowchart LR
-  O[Obsidian vault (macOS)] -->|commit| G[Git repo (local)]
-  G -->|push| GH[GitHub private repo]
+  O["Obsidian vault (macOS)"] -->|commit| G["Git repo (local)"]
+  G -->|push| GH["GitHub private repo"]
   GH -->|pull| G
   G -->|update working tree| O
 {{< /mermaid >}}
@@ -205,13 +205,13 @@ git push -u origin main
 {{< mermaid >}}
 flowchart TB
   subgraph macOS
-    M[Obsidian vault] -->|commit| MG[Git repo (local)]
+    M[Obsidian vault] -->|commit| MG["Git repo (local)"]
   end
   subgraph Android
-    A[Obsidian vault] -->|sync via GitSync| AG[Git repo (local)]
+    A[Obsidian vault] -->|sync via GitSync| AG["Git repo (local)"]
   end
   subgraph Windows
-    W[Obsidian vault] -->|commit| WG[Git repo (local)]
+    W[Obsidian vault] -->|commit| WG["Git repo (local)"]
   end
 
   MG -->|push| GH[GitHub private repo]
