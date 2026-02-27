@@ -8,8 +8,6 @@ draft: false
 
 This project documents the migration of `bil.arikan.ca` from an Astro-based site to a Hugo-based site using the Congo theme.
 
-## Why migrate
-
 The Astro site was working, but I wanted a setup that is simpler to maintain for long-form writing, easier to run as a content-first workflow, and included support for [Mermaid.js](https://mermaid-js.github.io/) or [Chart.js](https://www.chartjs.org/docs/latest/general/).
 
 Migration goals:
