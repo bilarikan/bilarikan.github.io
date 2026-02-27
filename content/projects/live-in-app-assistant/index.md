@@ -1,5 +1,5 @@
 ---
-title: "Open In-App Live Assistant"
+title: "In-App Live Assistant"
 date: 2026-02-13T00:00:00-05:00
 description: "An open-source kit for building a real-time in-app assistant that listens to voice, sees the screen, and guides users step-by-step."
 tags: ["open-source", "ai-agents", "multimodal", "streaming", "voice", "screen-sharing", "xapi", "learning-measurement"]
