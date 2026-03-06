@@ -235,7 +235,7 @@ With all that context, here is what I keep coming back to. The two companies tha
 Of course, military AI policy matters --- it matters enormously --- and Anthropic's insistence on responsible-use guardrails is a better apprroach, though they are likely just protecting themselves from liability of the wild tech implementations with the Pentagon and Palantir. But if you are a practitioner trying to figure out where the agentic web and commerce is heading, it's in the protocols and frameworks being advanced by Google. The fully automation of weaponry and AI enabled mass-surveillance, powered by Anthropic, OpenAI and Palantir is going to have different effects, though its likely not going to be supporting easier of agentic communication and commerce.
 
 ---
-### Sources
+## Sources
 
 - [OpenAI – Our Agreement with the Department of War](https://openai.com/index/our-agreement-with-the-department-of-war/)
 - [NPR – OpenAI announces Pentagon deal after Trump bans Anthropic](https://www.npr.org/2026/02/27/nx-s1-5729118/trump-anthropic-pentagon-openai-ai-weapons-ban)
