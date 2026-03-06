@@ -9,17 +9,15 @@ categories: ["AI Experiments"]
 draft: false
 ---
 
-# Google Is Quietly Building the Agentic Web
-
 The last week of February 2026 gave us a look behind the curtain of the AI industry's contributions to cutting-edge military capabilities. Anthropic was designated a "supply-chain risk to national security" --- a label normally reserved for foreign adversaries --- because they insisted on contractual guardrails against mass surveillance and fully autonomous control in a Pentagon deal. Hours later, OpenAI rushed in to sign the contract themselves. Sam Altman later admitted the whole thing was " rushed" and "sloppy." The contract was amended later to include wording on limitations similar to what Anthropic had been trying to negotiate for months, apparently...
 
 In that same window of time, Google had a sneak peek of WebMCP live in Chrome Canary, the Universal Commerce Protocol processing transactions, and the Agent2Agent protocol is progressing. In this post I want to lay out what Google is creating, why it matters, and what it means if you are building products that will exist on an agentic web.
 
-# The Protocol Stack Nobody Is Talking About
+## The Protocol Stack Nobody Is Talking About
 
 Google, Microsoft, and the Linux Foundation are quietly assembling and clearly documenting three protocols that, taken together, form a coherent stack for how AI agents will interact with the web. This is not a random collection of projects. It is an architecture.
 
-## Web Model Context Protocol
+### Web Model Context Protocol
 
 **WebMCP (Web Model Context Protocol)** handles how agents interact with websites. Launched as an early preview in Chrome Canary in February 2026, WebMCP lets websites expose structured tools directly to AI agents through the browser, not some backend connection or API key that you need to jerry-rig together. Instead of an agent guessing what it can do on a page by taking screenshots and parsing pixels, the website just tells the agent: here are my capabilities, here are their schemas, call them directly. 
 
@@ -91,7 +89,7 @@ graph LR
 
 ---
 
-## Universal Commerce Protocol
+### Universal Commerce Protocol
 
 **UCP (Universal Commerce Protocol)** handles how agents transact. Announced in January 2026, UCP is an open-source protocol co-developed with Shopify that standardizes how AI agents discover products, manage carts, and complete purchases. It is live today --- Etsy and Wayfair are processing real UCP-powered checkouts for shoppers, with Shopify, Target, and Walmart coming.
 
@@ -174,7 +172,7 @@ graph TD
 
 ---
 
-## Agent2Agent
+### Agent2Agent
 
 **A2A (Agent2Agent Protocol)** is older, announced mid-2025 (I can't believe we are in an age where more than 6 months means something is nearly ancient), and handles how agents communicate with each other. Now under Linux Foundation governance, A2A enables agents built on different frameworks by different companies to discover each other's capabilities, delegate tasks, share context, and coordinate actions. Agent Cards (in JSON format) handle capability discovery. Task lifecycle management handles the state. There are over 50 launch partners including Atlassian, Salesforce, SAP, ServiceNow, and PayPal.
 
@@ -216,13 +214,14 @@ graph TD
 {{< /mermaid >}}
 
 ---
-# Google Is Also Winning the Infrastructure Race
+
+## Google Is Also Winning the Infrastructure Race
 
 Protocols are one thing. Running them at scale is another. Over the past several months I have been evaluating cloud providers for a real-time multimodal AI agent --- comparing Google Cloud, Azure, and AWS head-to-head on latency, cost, and architectural complexity for bidirectional streaming workloads. The results were clear enough that I want to share the key findings here.
 
 The core finding: Google is the only provider offering native bidirectional streaming with simultaneous video and audio reasoning in a single model. Azure's Realtime API is optimized for audio but lacks streaming video input. AWS requires chaining Nova 2 Omni (video/audio input) with Nova 2 Sonic (audio output) --- two separate models, brittle orchestration. Though this may change, may have already as I'm writing this, or I have missed an offering from Azure or AWS, it was still way too easy to build with a Google stack of AI Developer Kit, Google Cloud, and Vertex AI.
 
-# Why This Matters for Practitioners
+## Why This Matters for Practitioners
 
 If you are building products that agents will interact with, the protocol question is, I think, actually more important than the model question right now. Models are commoditizing. The model you use this quarter will be superseded next quarter, some can even be run locally with little challenge and good-enough output. But the protocols that define how agents discover capabilities, transact, and coordinate --- those may have staying power, assuming wide adoption.
 
@@ -236,7 +235,7 @@ Here is the practical framing:
 
 One constraint worth flagging: WebMCP is Chrome-only for now, and UCP is U.S.-only at launch. Neither is globally production-ready yet. But the direction is set, and the risk of waiting feels similar to the risk of ignoring SEO in 2005 --- by the time it is obvious, the early movers already have the advantage.
 
-# The Irony
+## The Irony
 
 With all that context, here is what I keep coming back to. The two companies that dominated AI headlines in late February 2026 were fighting over a military contract that one of them admitted was rushed and sloppy. The company that got almost no coverage was shipping the protocols that will likely define how AI agents interact with the web, buy things, and talk to each other.
 
@@ -244,7 +243,7 @@ Of course, military AI policy matters --- it matters enormously --- and Anthropi
 
 ---
 
-# Sources
+**Sources**
 
 - [OpenAI – Our Agreement with the Department of War](https://openai.com/index/our-agreement-with-the-department-of-war/)
 - [NPR – OpenAI announces Pentagon deal after Trump bans Anthropic](https://www.npr.org/2026/02/27/nx-s1-5729118/trump-anthropic-pentagon-openai-ai-weapons-ban)
