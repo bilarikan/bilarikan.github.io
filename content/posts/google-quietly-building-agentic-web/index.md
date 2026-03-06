@@ -86,6 +86,7 @@ graph LR
     style NM fill:#1e88e5,stroke:#333,color:#fff
     style E2 fill:#0277bd,stroke:#333,color:#fff
 {{< /mermaid >}}
+
 ---
 
 **UCP (Universal Commerce Protocol)** handles how agents transact. Announced in January 2026, UCP is an open-source protocol co-developed with Shopify that standardizes how AI agents discover products, manage carts, and complete purchases. It is live today --- Etsy and Wayfair are processing real UCP-powered checkouts for shoppers, with Shopify, Target, and Walmart coming.
