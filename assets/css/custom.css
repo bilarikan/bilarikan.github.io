@@ -2,6 +2,12 @@
 @media (min-width: 1024px) {
   /* Allow article content to grow wider than the default prose max-width (~65ch) */
   .max-w-prose {
-    max-width: 90ch;
+    max-width: 100ch;
+  }
+
+  /* Widen the TOC sidebar so headings don't wrap, and prevent it from being squeezed */
+  article .lg\:max-w-xs {
+    max-width: 26rem;
+    flex-shrink: 0;
   }
 }
