@@ -1,0 +1,7 @@
+/* Widen article content on large screens for better diagram visibility */
+@media (min-width: 1024px) {
+  /* Allow article content to grow wider than the default prose max-width (~65ch) */
+  .max-w-prose {
+    max-width: 90ch;
+  }
+}
