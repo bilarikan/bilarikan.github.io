@@ -11,7 +11,7 @@ draft: false
 
 # Google Is Quietly Building the Agentic Web
 
-The last week of February 2026 gave us a look behind the curtain of the AI industry's contributions to cutting-edge military capabilities. Anthropic was designated a "supply-chain risk to national security" --- a label normally reserved for foreign adversaries --- because they insisted on contractual guardrails against mass surveillance and fully autonomous control in a Pentagon deal. Hours later, OpenAI rushed in to sign the contract themselves. Sam Altman later admitted the whole thing was " rushed" and "sloppy." The contract was amended later to include wording on limitations similar to what Anthropic had been trying to negotiate for months, apparently...
+The last week of February 2026 gave us a look behind the curtain of the AI industry's contributions to cutting-edge military capabilities. Anthropic was designated a "supply-chain risk to national security" -- a label normally reserved for foreign adversaries -- because they insisted on contractual guardrails against mass surveillance and fully autonomous control in a Pentagon deal. Hours later, OpenAI rushed in to sign the contract themselves. Sam Altman later admitted the whole thing was " rushed" and "sloppy." The contract was amended later to include wording on limitations similar to what Anthropic had been trying to negotiate for months, apparently...
 
 In that same window of time, Google had a sneak peek of WebMCP live in Chrome Canary, the Universal Commerce Protocol processing transactions, and the Agent2Agent protocol is progressing. In this post I want to lay out what Google is creating, why it matters, and what it means if you are building products that will exist on an agentic web.
 

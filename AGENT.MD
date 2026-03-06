@@ -40,16 +40,17 @@
 
 ## Author Voice And Writing Style (bil.arikan.ca)
 - Primary voice is first-person practitioner voice (`I`, `my`, `in this post I want to...`), not detached analyst voice.
-- Tone should be practical, direct, and iterative: explain what is being tested, why, and what changes next.
+- Tone should be practical, direct, and iterative: explain what is being tested, why, what changes next, the real-world impacts.
 - Prefer concrete statements over abstract language. Prioritize usefulness over polish.
-- Keep claims measured and evidence-aware (for example: `directional`, `in this case`, `for now`, `next iteration`).
+- Keep claims measured and evidence-aware (for example: `in this case`, `for now`, `next iteration`).
 - Show explicit thinking flow: problem -> assumption -> approach -> implementation/pilot -> next step.
-- Position AI as a collaborator for speed/prototyping, while final judgment and accountability remain human.
 - Avoid inflated language, hype, motivational filler, or generic "thought leadership" phrasing.
 - Frequently use walkthrough sequencing language: `now`, `before we start`, `in this case`, `from there`, `with this change`, `next step`.
 - Call out constraints and risks directly (for example security, privacy, measurement limits), then state the mitigation.
 - Preserve transparent iteration notes: explicitly document failures, corrections, and what changed after troubleshooting.
 - Prefer scenario-driven explanation: define context, target audience, and business/learning impact before technical implementation details.
+- Prefer the use of two hypens for en dashes `--` and three hypens for em dashes `---`, and try not to overuse em dashes.
+- Prefer Mermaid.js diagrams to Top Down `TD` orientation.
 
 ## Preferred Post Structure For This Site
 - Open with a clear framing sentence and one guiding question.
