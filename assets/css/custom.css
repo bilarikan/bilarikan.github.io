@@ -1,13 +1,18 @@
-/* Widen article content on large screens for better diagram visibility */
+/* Give more horizontal space on large screens for content and TOC */
 @media (min-width: 1024px) {
-  /* Allow article content to grow wider than the default prose max-width (~65ch) */
-  .max-w-prose {
-    max-width: 100ch;
+  /* Reduce outer page side padding (default is 8rem/128px each side — too much) */
+  .lg\:px-32 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  /* Widen the TOC sidebar so headings don't wrap, and prevent it from being squeezed */
+  /* Allow article content to grow wider than the default prose max-width (~65ch) */
+  .max-w-prose {
+    max-width: 90ch;
+  }
+
+  /* Prevent TOC sidebar from being squeezed by wide content */
   article .lg\:max-w-xs {
-    max-width: 26rem;
     flex-shrink: 0;
   }
 }
