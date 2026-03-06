@@ -11,7 +11,7 @@ draft: false
 
 # Google Is Quietly Building the Agentic Web
 
-The last week of February 2026 gave us a look behind the curtain of the AI industry's contributions to cutting-edge military capabilities. Anthropic was designated a "supply-chain risk to national security" -- a label normally reserved for foreign adversaries -- because they insisted on contractual guardrails against mass surveillance and fully autonomous control in a Pentagon deal. Hours later, OpenAI rushed in to sign the contract themselves. Sam Altman later admitted the whole thing was " rushed" and "sloppy." The contract was amended later to include wording on limitations similar to what Anthropic had been trying to negotiate for months, apparently...
+The last week of February 2026 gave us a look behind the curtain of the AI industry's contributions to cutting-edge military capabilities. Anthropic was designated a "supply-chain risk to national security" --- a label normally reserved for foreign adversaries --- because they insisted on contractual guardrails against mass surveillance and fully autonomous control in a Pentagon deal. Hours later, OpenAI rushed in to sign the contract themselves. Sam Altman later admitted the whole thing was " rushed" and "sloppy." The contract was amended later to include wording on limitations similar to what Anthropic had been trying to negotiate for months, apparently...
 
 In that same window of time, Google had a sneak peek of WebMCP live in Chrome Canary, the Universal Commerce Protocol processing transactions, and the Agent2Agent protocol is progressing. In this post I want to lay out what Google is creating, why it matters, and what it means if you are building products that will exist on an agentic web.
 
@@ -27,7 +27,7 @@ I have been building a live multimodal agent that relies on periodic screenshots
 
 Without WebMCP, a browser agent is essentially flying blind. It takes a screenshot, sends it to a vision model, waits for an interpretation, attempts an action, and then takes another screenshot to see if it worked. Every interaction is a round-trip through pixel space — slow, token-hungry, and wrong often enough to matter. There is no handshake between the agent and the site, no shared understanding of what the page can do. The agent is guessing at a UI built for human eyes.
 
-```mermaid
+{{< mermaid >}}
 graph LR
     subgraph Input
         A1["AI Agent"]
@@ -55,11 +55,11 @@ graph LR
     style VM fill:#e53935,stroke:#333,color:#fff
     style AC fill:#e53935,stroke:#333,color:#fff
     style ERR fill:#b71c1c,stroke:#333,color:#fff
-```
+{{< /mermaid >}}
 
 With WebMCP, the site stops being a thing the agent has to decode and becomes a thing the agent can directly use. The website publishes its capabilities as structured tools — what actions exist, what inputs they take, what they return — and the browser mediates access with a permission gate. The agent calls a tool, gets a structured response, and moves on. No screenshots, no pixel parsing, no guessing. The 67% reduction in compute overhead and ~98% task accuracy benchmarks are a direct result of this: reliability goes up when you replace interpretation with a contract.
 
-```mermaid
+{{< mermaid >}}
 graph LR
     subgraph Sources
         W2["Website"]
@@ -85,7 +85,7 @@ graph LR
     style W2 fill:#1e88e5,stroke:#333,color:#fff
     style NM fill:#1e88e5,stroke:#333,color:#fff
     style E2 fill:#0277bd,stroke:#333,color:#fff
-```
+{{< /mermaid >}}
 ---
 
 **UCP (Universal Commerce Protocol)** handles how agents transact. Announced in January 2026, UCP is an open-source protocol co-developed with Shopify that standardizes how AI agents discover products, manage carts, and complete purchases. It is live today --- Etsy and Wayfair are processing real UCP-powered checkouts for shoppers, with Shopify, Target, and Walmart coming.
@@ -95,7 +95,7 @@ The architecture is layered: a Shopping service defines the core (checkout sessi
 The partner list is not that of small-time players. Visa, Mastercard, Stripe, American Express, Best Buy, Macy's, The Home Depot, and others.
 
 With UCP, the checkout flow is structured end to end. The agent calls into a well-defined Shopping Service, moves through independently versioned Capabilities, and hands off to a payment layer --- all without ever touching raw card data or guessing at UI state. The merchant stays in control, the agent stays in its lane, and the state machine gives both sides a shared language for what's done and what isn't.
-```mermaid
+{{< mermaid >}}
 graph TD
     subgraph "UCP Agentic Checkout Flow"
         U[User / AI Agent] -->|"Discovers products"| S["Shopping Service\n(sessions, line items, totals)"]
@@ -126,11 +126,11 @@ graph TD
     style R fill:#43a047,stroke:#333
     style PH fill:#7b1fa2,stroke:#333,color:#fff
     style M fill:#7b1fa2,stroke:#333,color:#fff
-```
+{{< /mermaid >}}
 
 Without UCP, an agent attempting the same purchase has to improvise the entire way. It takes screenshots, parses pixels, infers cart state from DOM structure, and hopes the checkout form fields are labeled clearly enough to fill correctly. Every step is a guess. When it hits a proof-of- humanity or authentication challenge, it has no protocol to hand off gracefully --- it just fails, or dumps the problem back on the user. This is the fragile alternative that UCP is designed to replace.
 
-```mermaid
+{{< mermaid >}}
 graph TD
     subgraph "Agentic Checkout No UCP"
         AU[User / AI Agent] -->|"Scrapes or screenshots pages"| VB["Visual Browser\n(screenshot + pixel parsing)"]
@@ -165,7 +165,7 @@ graph TD
     style AMR fill:#43a047,stroke:#333
     style AMPH fill:#7b1fa2,stroke:#333,color:#fff
     style AMM fill:#7b1fa2,stroke:#333,color:#fff
-```
+{{< /mermaid >}}
 
 ---
 **A2A (Agent2Agent Protocol)** is older, announced mid-2025 (I can't believe we are in an age where more than 6 months means something is nearly ancient), and handles how agents communicate with each other. Now under Linux Foundation governance, A2A enables agents built on different frameworks by different companies to discover each other's capabilities, delegate tasks, share context, and coordinate actions. Agent Cards (in JSON format) handle capability discovery. Task lifecycle management handles the state. There are over 50 launch partners including Atlassian, Salesforce, SAP, ServiceNow, and PayPal.
@@ -174,7 +174,7 @@ A2A complements Anthropic's MCP (which gives agents access to tools) by adding t
 
 Now stack these three together. An agent discovers what a website can do (WebMCP), transacts through those capabilities (UCP), and coordinates with other agents to complete complex multi-step tasks (A2A). That is a full agentic web layer.
 
-```mermaid
+{{< mermaid >}}
 graph TD
     subgraph "Agent A"
         AA["Shopping Agent"]
@@ -205,7 +205,7 @@ graph TD
     style AX fill:#7b1fa2,stroke:#333,color:#fff
     style AC fill:#f9a825,stroke:#333
     style TM fill:#fb8c00,stroke:#333
-```
+{{< /mermaid >}}
 
 ---
 ## Google Is Also Winning the Infrastructure Race
