@@ -109,7 +109,7 @@ graph TD
     EXT -->|"Initiates checkout"| I
 
     subgraph "Checkout State Machine"
-        I["incomplete missing info"] -->|"Agent resolves"| RE["requires_escalation<br/>buyer input needed"]
+        I["incomplete<br/>missing info"] -->|"Agent resolves"| RE["requires_escalation<br/>buyer input needed"]
         RE -->|"Resolved or handed off"| R["ready_for_complete<br/>agent finalizes"]
     end
 
