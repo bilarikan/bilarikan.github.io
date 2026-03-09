@@ -102,21 +102,21 @@ With UCP, the checkout flow is structured end to end. The agent calls into a wel
 graph TD
     subgraph "UCP Agentic Checkout Flow"
         U[User / AI Agent] -->|"Discovers products"| S["Shopping Service<br/>(sessions, line items, totals)"]
-        S --> CAP["Capabilities\n(Checkout, Orders, Catalog)"]
-        CAP --> EXT["Extensions\n(discounts, loyalty, domain-specific)"]
+        S --> CAP["Capabilities<br/>(Checkout, Orders, Catalog)"]
+        CAP --> EXT["Extensions<br/>(discounts, loyalty, domain-specific)"]
     end
 
     EXT -->|"Initiates checkout"| I
 
     subgraph "Checkout State Machine"
         I["incomplete missing info"] -->|"Agent resolves"| RE["requires_escalation<br/>buyer input needed"]
-        RE -->|"Resolved or handed off"| R["ready_for_complete agent finalizes"]
+        RE -->|"Resolved or handed off"| R["ready_for_complete<br/>agent finalizes"]
     end
 
     R -->|"Tokenized payment"| PH
 
     subgraph "Payment Layer"
-        PH["Payment Handler (Stripe, Visa, etc.)"]
+        PH["Payment Handler<br/>(Stripe, Visa, etc.)"]
         PH -->|"Confirmation"| M["Merchant of Record"]
     end
 
@@ -136,24 +136,24 @@ Without UCP, an agent attempting the same purchase has to improvise the entire w
 {{< mermaid >}}
 graph TD
     subgraph "Agentic Checkout No UCP"
-        AU[User / AI Agent] -->|"Scrapes or screenshots pages"| VB["Visual Browser\n(screenshot + pixel parsing)"]
-        VB -->|"Interprets UI to find products"| AC["Agent Cart Logic\n(infers line items, totals)"]
-        AC -->|"Navigates to checkout page"| AF["Checkout Form\n(DOM parsing, field detection)"]
-        AF -->|"Fills fields via automation"| AP["Payment Fields\n(autofill or user-provided tokens)"]
-        AP -->|"Clicks confirm button"| ARV["Order Review\n(agent parses confirmation UI)"]
+        AU[User / AI Agent] -->|"Scrapes or screenshots pages"| VB["Visual Browser<br/>(screenshot + pixel parsing)"]
+        VB -->|"Interprets UI to find products"| AC["Agent Cart Logic<br/>(infers line items, totals)"]
+        AC -->|"Navigates to checkout page"| AF["Checkout Form<br/>(DOM parsing, field detection)"]
+        AF -->|"Fills fields via automation"| AP["Payment Fields<br/>(autofill or user-provided tokens)"]
+        AP -->|"Clicks confirm button"| ARV["Order Review<br/>(agent parses confirmation UI)"]
     end
 
     ARV -->|"Submits order"| AMI
 
     subgraph "Checkout State Machine"
-        AMI["incomplete\nmissing info"] -->|"Agent retries or escalates"| AMRE["requires_escalation\n3DS auth, CAPTCHA, login wall"]
-        AMRE -->|"Handed off to user"| AMR["ready_for_complete\nuser or agent confirms"]
+        AMI["incomplete<br/>missing info"] -->|"Agent retries or escalates"| AMRE["requires_escalation<br/>3DS auth, CAPTCHA, login wall"]
+        AMRE -->|"Handed off to user"| AMR["ready_for_complete<br/>user or agent confirms"]
     end
 
-    AMR -->|"Raw payment submission\n(no tokenization layer)"| AMPH
+    AMR -->|"Raw payment submission<br/>(no tokenization layer)"| AMPH
 
     subgraph "Payment Layer"
-        AMPH["Payment Handler\n(Stripe, Visa, etc.)"]
+        AMPH["Payment Handler<br/>(Stripe, Visa, etc.)"]
         AMPH -->|"Confirmation"| AMM["Merchant of Record"]
     end
 
