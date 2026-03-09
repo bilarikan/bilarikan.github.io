@@ -262,4 +262,4 @@ But the camera is pointed at me. For a product guidance agent, I need it pointed
 
 ## The Repository
 
-The code is available on [GitHub](https://github.com/bilarikan/live-streaming-agent-with-google-adk), with some files omitted for standard security practice (`.env` and everything in `.venv/`).
+The code is available on [This brand of the GitHub repo](https://github.com/bilarikan/live-streaming-agent-with-google-adk/tree/standard-adk-bidi-demo-mic-plus-camera), with some files omitted for standard security practice (e.g. `.env` and everything in `.venv/`).
