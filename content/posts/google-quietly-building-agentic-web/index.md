@@ -101,7 +101,7 @@ With UCP, the checkout flow is structured end to end. The agent calls into a wel
 {{< mermaid >}}
 graph TD
     subgraph "UCP Agentic Checkout Flow"
-        U[User / AI Agent] -->|"Discovers products"| S["Shopping Service\n(sessions, line items, totals)"]
+        U[User / AI Agent] -->|"Discovers products"| S["Shopping Service<br/>(sessions, line items, totals)"]
         S --> CAP["Capabilities\n(Checkout, Orders, Catalog)"]
         CAP --> EXT["Extensions\n(discounts, loyalty, domain-specific)"]
     end
@@ -109,14 +109,14 @@ graph TD
     EXT -->|"Initiates checkout"| I
 
     subgraph "Checkout State Machine"
-        I["incomplete\nmissing info"] -->|"Agent resolves"| RE["requires_escalation\nbuyer input needed"]
-        RE -->|"Resolved or handed off"| R["ready_for_complete\nagent finalizes"]
+        I["incomplete missing info"] -->|"Agent resolves"| RE["requires_escalation<br/>buyer input needed"]
+        RE -->|"Resolved or handed off"| R["ready_for_complete agent finalizes"]
     end
 
     R -->|"Tokenized payment"| PH
 
     subgraph "Payment Layer"
-        PH["Payment Handler\n(Stripe, Visa, etc.)"]
+        PH["Payment Handler (Stripe, Visa, etc.)"]
         PH -->|"Confirmation"| M["Merchant of Record"]
     end
 
