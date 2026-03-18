@@ -127,17 +127,17 @@ The answer was **orchestration**: a parent agent that understands the routing pr
 
 {{< mermaid >}}
 flowchart TD
-    U([User]) -->|Uploads document + provides\nlanguage / country / product| P
+    U([User]) -->|Uploads document + provides<br/>language / country / product| P
 
-    P["🧠 Orchestrator Agent\n(Parent)"]
+    P["🧠 Orchestrator Agent<br/>(Parent)"]
 
-    P -->|French + France| A["🇫🇷 French (France)\nChild Agent"]
-    P -->|German + Germany| B["🇩🇪 German (Germany)\nChild Agent"]
-    P -->|Spanish + Spain| C["🇪🇸 Spanish (Spain)\nChild Agent"]
-    P -->|English + South Africa| D["🇿🇦 English (South Africa)\nChild Agent"]
-    P -->|No exact match| F["⚙️ Fallback Handler\n(Parent resolves using\nclosest locale rules)"]
+    P -->|French + France| A["🇫🇷 French (France)<br/>Child Agent"]
+    P -->|German + Germany| B["🇩🇪 German (Germany)<br/>Child Agent"]
+    P -->|Spanish + Spain| C["🇪🇸 Spanish (Spain)<br/>Child Agent"]
+    P -->|English + South Africa| D["🇿🇦 English (South Africa)<br/>Child Agent"]
+    P -->|No exact match| F["⚙️ Fallback Handler<br/>(Parent resolves using<br/>closest locale rules)"]
 
-    A --> OUT["📄 Translated &\nLocalised Output"]
+    A --> OUT["📄 Translated &<br/>Localised Output"]
     B --> OUT
     C --> OUT
     D --> OUT
@@ -208,9 +208,9 @@ flowchart LR
         direction TB
         L1["📅 Date format: DD/MM/YYYY"]
         L2["💶 Currency: € with comma decimal separator"]
-        L3["⚖️ Apply GDPR / French labour code references\nwhere relevant"]
+        L3["⚖️ Apply GDPR / French labour code references<br/>where relevant"]
         L4["🗣️ Register: formal 'vous' throughout"]
-        L5["📦 Product terminology: use approved\nFrench product glossary"]
+        L5["📦 Product terminology: use approved<br/>French product glossary"]
     end
 {{< /mermaid >}}
 
