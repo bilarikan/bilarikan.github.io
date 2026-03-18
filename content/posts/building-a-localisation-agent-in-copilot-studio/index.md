@@ -125,7 +125,7 @@ The answer was **orchestration**: a parent agent that understands the routing pr
 
 ### Conceptual Architecture
 
-```mermaid
+{{< mermaid >}}
 flowchart TD
     U([User]) -->|Uploads document + provides\nlanguage / country / product| P
 
@@ -144,7 +144,7 @@ flowchart TD
     F --> OUT
 
     OUT --> U
-```
+{{< /mermaid >}}
 
 ### Requirements
 
@@ -202,7 +202,7 @@ This explicit negative instruction ("do not attempt to translate") is important.
 
 Each child agent is a separate agent in Copilot Studio, configured with deep locale-specific knowledge in its system instructions.
 
-```mermaid
+{{< mermaid >}}
 flowchart LR
     subgraph "Child Agent Instructions (French / France example)"
         direction TB
@@ -212,7 +212,7 @@ flowchart LR
         L4["🗣️ Register: formal 'vous' throughout"]
         L5["📦 Product terminology: use approved\nFrench product glossary"]
     end
-```
+{{< /mermaid >}}
 
 The child agents are configured to:
 - Receive the document content and product name as their input
@@ -288,7 +288,7 @@ Here's an honest snapshot of where the project sits today:
 
 ## Architecture Recap
 
-```mermaid
+{{< mermaid >}}
 sequenceDiagram
     actor User
     participant P as Orchestrator Agent
@@ -308,7 +308,7 @@ sequenceDiagram
     end
 
     P->>User: Deliver final translated output
-```
+{{< /mermaid >}}
 
 ---
 
