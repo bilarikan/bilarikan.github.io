@@ -13,7 +13,7 @@ title = "Bil Arikan"
 [params.author]
   name = "Bil Arikan"
   headline = "Learning performance infrastructure"
-  bio = "Building systems for learning measurement and performance improvement. Tinkerer of spider bots, local AI stacks, and Obsidian.md tooling."
+  bio = "Into learning, technology, and getting things to work together. Toronto-based, early morning overcaffeinated."
   links = [
     { email = "mailto:bil@arikan.ca" },
     { linkedin = "https://www.linkedin.com/in/bilarikan/" },
