@@ -12,7 +12,7 @@ title = "Bil Arikan"
 
 [params.author]
   name = "Bil Arikan"
-  headline = "Learning performance infrastructure"
+  headline = "Learning, Patterns, Performance"
   bio = "Into learning, technology, and getting things to work together. Toronto-based, early morning overcaffeinated."
   links = [
     { email = "mailto:bil@arikan.ca" },
