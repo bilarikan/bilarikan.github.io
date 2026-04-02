@@ -128,7 +128,7 @@ The translation problem maps cleanly onto this pattern because the layers of con
 
 ## The Takeaway for Anyone Building Similar Systems
 
-If you're designing agentic systems for content translation or localisation — whether in Copilot Studio, a custom-built multi-agent framework, or anything in between — I'd suggest leading with the layers-of-context model rather than the translation/localisation binary.
+If you're designing agentic systems for content translation or localisation — whether in Copilot Studio, a custom-built multi-agent framework, or anything in between — I'm leading with the layers-of-context model rather than the translation/localisation binary.
 
 It gives you a cleaner design story:
 
@@ -138,7 +138,3 @@ It gives you a cleaner design story:
 - **How does the orchestrator route based on this?** (By locale, by content type, by confidence threshold)
 
 The translation/localisation binary mostly generates arguments about definitions. The layers model generates architecture decisions. One of those is more useful when you're actually trying to build something.
-
----
-
-*This is a follow-up to [Building a Localisation Agent in Microsoft Copilot Studio](/posts/building-a-localisation-agent-in-copilot-studio/), which covers the build in detail. The architectural questions in this post came directly from feedback on that one.*
