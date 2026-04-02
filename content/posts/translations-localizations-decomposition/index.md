@@ -76,20 +76,20 @@ And if regulatory content is genuinely out of scope for automated processing —
 
 This is where the framing becomes practically useful rather than just conceptually tidy.
 
-```mermaid
+{{< mermaid >}}
 flowchart TD
-    U([User Input]) --> O["🧠 Orchestrator\n(routes by language + country + product)"]
+    U([User Input]) --> O["🧠 Orchestrator<br/>(routes by language + country + product)"]
     
-    O --> L1["Layer 1–2\nLinguistic + Terminological\nChild agent system instructions\n+ product glossary"]
-    O --> L2["Layer 3\nCultural\nChild agent locale rules\n(register, formatting, metaphors)"]
-    O --> L3["Layer 4\nRegulatory\nRAG: compliance docs\nOR flag for SME review"]
-    O --> L4["Layer 5\nOrganisational\nUser-uploaded glossary\nOR partner knowledge source"]
+    O --> L1["Layer 1–2<br/>Linguistic + Terminological<br/>Child agent system instructions<br/>+ product glossary"]
+    O --> L2["Layer 3<br/>Cultural<br/>Child agent locale rules<br/>(register, formatting, metaphors)"]
+    O --> L3["Layer 4<br/>Regulatory<br/>RAG: compliance docs<br/>OR flag for SME review"]
+    O --> L4["Layer 5<br/>Organisational<br/>User-uploaded glossary<br/>OR partner knowledge source"]
     
     L1 --> OUT["📄 Translated Output"]
     L2 --> OUT
     L3 --> OUT
     L4 --> OUT
-```
+{{< /mermaid >}}
 
 Each layer becomes either a **knowledge source injected into the relevant child agent**, a **routing rule in the orchestrator**, or an **escalation trigger** when confidence is low or the content requires domain expertise the system doesn't have.
 
@@ -105,18 +105,18 @@ The layers model only becomes useful if you actually act on it — and the actio
 
 The general pattern looks like this:
 
-```mermaid
+{{< mermaid >}}
 flowchart TD
-    P["Complex Problem"] --> D["Decompose by\ntype of knowledge required"]
-    D --> C1["Component A\n(knows X)"]
-    D --> C2["Component B\n(knows Y)"]
-    D --> C3["Component C\n(knows Z)"]
-    C1 --> E{"Can it\nreliably handle this?"}
+    P["Complex Problem"] --> D["Decompose by<br/>type of knowledge required"]
+    D --> C1["Component A<br/>(knows X)"]
+    D --> C2["Component B<br/>(knows Y)"]
+    D --> C3["Component C<br/>(knows Z)"]
+    C1 --> E{"Can it<br/>reliably handle this?"}
     C2 --> E
     C3 --> E
     E -- Yes --> OUT["Handle it"]
-    E -- No --> ESC["Flag it / escalate\nto a specialist"]
-```
+    E -- No --> ESC["Flag it / escalate<br/>to a specialist"]
+{{< /mermaid >}}
 
 Each component is given a clearly scoped responsibility and the knowledge it needs to fulfil that responsibility. When a component reaches the edge of what it reliably knows, it doesn't guess — it hands off.
 
