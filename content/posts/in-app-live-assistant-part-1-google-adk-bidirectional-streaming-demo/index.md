@@ -1,5 +1,5 @@
 ---
-title: "Walking Through Google's ADK Bidirectional Streaming Demo"
+title: "In-app Live Assistant : Part 1 --- Walking Through Google's ADK Bidirectional Streaming Demo"
 date: 2026-03-09T00:00:00-05:00
 description: "A step-by-step walkthrough of getting Google's Agent Development Kit bidirectional streaming demo running locally with microphone and camera --- The foundation for a live in-app assistant."
 summary: "I want to build a live AI assistant that can hear a user and see their screen at the same time, then talk back in real time. This post walks through getting Google's ADK bidirectional streaming demo running locally with mic, camera, and voice out --- and documents the things that tripped me up."
