@@ -258,7 +258,7 @@ Click "Start Mic + Screen" and select the window or tab where Obsidian is runnin
 
 The agent should greet you and describe what it sees. Try asking it to help you create a new note, set up a daily template, or navigate the graph view.
 
-Here is a screenshot of the custom client:
+Here is a screenshot of the custom client running:
 
 ![Custom web client with mic and screen share controls](SCR-20260406-juxd-2.png)
 
