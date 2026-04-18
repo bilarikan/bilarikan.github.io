@@ -37,6 +37,7 @@
 - Keep publish-ready posts as `draft: false`.
 - Prefer concise sections and short paragraphs for readability.
 - If revising an old draft from outside repo content, create a new post under `content/posts/` and keep the original source draft untouched unless asked.
+- After a post is successfully created and verified locally (`hugo server`), commit and push to `main` so the GitHub Actions workflow deploys it to production.
 
 ## Author Voice And Writing Style (bil.arikan.ca)
 - Primary voice is first-person practitioner voice (`I`, `my`, `in this post I want to...`), not detached analyst voice.
