@@ -12,6 +12,15 @@
 - Avoid editing files inside `themes/congo/` unless the task is explicitly a theme update.
 - Be careful when staging commits: do not include submodule pointer/theme edits unless requested.
 
+## Worktree Session Hygiene
+- When running inside a Claude Code worktree (for example `.claude/worktrees/<name>/` on branch `claude/<name>`), do not push the worktree branch directly to `origin/main`. Push it to itself on the remote (`git push -u origin claude/<name>`) and open a pull request targeting `main` via `gh pr create`. This keeps local `main` in sync with `origin/main` and avoids divergence against the user's main working directory.
+- Never stage any path under `.claude/`. It is gitignored, but avoid `git add -A` / `git add .` in the main working directory for defence in depth -- prefer staging specific files by name. This prevents re-introducing the mode-160000 gitlink trap that hit an earlier session.
+- At the end of any session that commits from a worktree, print an explicit cleanup block for the user to run in the main working directory, and include the same block in the PR body. The block:
+  - `git pull --rebase origin main` (after the PR is merged)
+  - `git worktree remove --force .claude/worktrees/<name>`
+  - `git branch -D claude/<name>`
+- If the task is small enough that a PR would add more friction than value and the user has explicitly authorised a direct push to `main`, still print the cleanup block and still use `git pull --rebase origin main` (never a plain `git pull`) on the main working directory, because local `main` may have moved during the session.
+
 ## Deployment Expectations
 - Deployment workflow: `.github/workflows/static.yml`
 - Workflow should:
