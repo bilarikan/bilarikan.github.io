@@ -8,7 +8,7 @@ categories: ["Workflow"]
 draft: false
 ---
 
-While creating the [Android Vault Sync update post](https://bil.arikan.ca/posts/android-vault-sync-termux/) with Claude Code, I noticed something odd. The changes landed on GitHub, the deployment ran, the post was live -- but when I looked at my local repo, the files weren't there. No new post, no updated `CLAUDE.md`, no `.gitignore` change.
+While creating the [Android Vault Sync update post](https://bil.arikan.ca/posts/android-vault-sync-termux/) with Claude Code, I noticed something odd. The changes landed on GitHub, the deployment ran, the post was live -- but when I looked at my local repo, the files weren't there. No new post, no updated files.
 
 Why?
 
@@ -26,7 +26,7 @@ Both working directories share the same underlying git history and object store.
 /my-project/              ← main working directory (branch: main)
 /my-project/.claude/
   worktrees/
-    vibrant-mclean-4783f7/  ← worktree (branch: claude/vibrant-mclean-4783f7)
+    vibrant-mclean-30e3f2/  ← worktree (branch: claude/vibrant-mclean-30e3f2)
 ```
 
 Changes made in the worktree directory don't appear in the main working directory, and vice versa. They are isolated by branch.
@@ -36,18 +36,18 @@ Changes made in the worktree directory don't appear in the main working director
 Claude Code creates a git worktree by default when it starts a session on a project. In this case it created one at:
 
 ```
-.claude/worktrees/vibrant-mclean-4783f7/
+.claude/worktrees/vibrant-mclean-30e3f2/
 ```
 
-On a branch named `claude/vibrant-mclean-4783f7`. Every file edit, every commit I made during that session happened inside that worktree directory, on that branch -- not in the main repo working directory.
+On a branch named `claude/vibrant-mclean-30e3f2`. Every file edit, every commit I made during that session happened inside that worktree directory, on that branch -- not in the main repo working directory.
 
 {{< mermaid >}}
 flowchart LR
   subgraph Local machine
-    A["Main working dir\n(branch: main)"]
-    B["Claude worktree\n(branch: claude/vibrant-mclean-4783f7)"]
+    A["Main working dir<br/>(branch: main)"]
+    B["Claude worktree<br/>(branch: claude/vibrant-mclean-30e3f2)"]
   end
-  GH["GitHub remote\n(origin/main)"]
+  GH["GitHub remote<br/>(origin/main)"]
 
   A -->|git push| GH
   B -->|git push origin claude/...branch...:main| GH
@@ -59,7 +59,7 @@ flowchart LR
 When the work was done, the commit was pushed from the worktree branch directly to `main` on GitHub:
 
 ```bash
-git push origin claude/vibrant-mclean-4783f7:main
+git push origin claude/vibrant-mclean-30e3f2:main
 ```
 
 This is the `source:destination` refspec form -- push the local worktree branch to the remote `main` branch. GitHub received the commits and the deployment ran. But the local `main` branch in my original working directory was never touched. It was still pointing at the old commit.
@@ -114,7 +114,7 @@ The worktree approach favours safety and reviewability. The direct approach favo
 
 Pulling changes into local `main` is only part of the picture. The worktree directory, its branch, and the worktree registration all linger after the push. Leaving them in place is not dangerous, but they create two ongoing issues: persistent `git status` noise, and the risk of a stray `git add -A` in the main working directory staging the worktree as a gitlink.
 
-That second risk hit me directly. A later commit in the main working directory swept up `.claude/worktrees/vibrant-mclean-4783f7` as a mode-160000 gitlink -- git saw the `.git` file inside the worktree and registered it as a submodule-style pointer. Nothing in `.gitmodules` matched it, so it was a dangling reference in pushed history. Harmless, but not clean.
+That second risk hit me directly. A later commit in the main working directory swept up `.claude/worktrees/vibrant-mclean-30e3f2` as a mode-160000 gitlink -- git saw the `.git` file inside the worktree and registered it as a submodule-style pointer. Nothing in `.gitmodules` matched it, so it was a dangling reference in pushed history. Harmless, but not clean.
 
 The fix is four steps, once per session:
 
