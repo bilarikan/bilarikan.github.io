@@ -118,10 +118,9 @@ That second risk hit me directly. A later commit in the main working directory s
 
 The fix is four steps, once per session:
 
-1. Add `.claude/` to `.gitignore` so future sessions cannot leak into a commit.
-2. If already committed, remove the stray gitlink: `git rm --cached .claude/worktrees/<name>`.
-3. Unregister the worktree: `git worktree remove --force .claude/worktrees/<name>`.
-4. Delete the leftover branch: `git branch -D claude/<name>`.
+1. If already committed, remove the stray gitlink: `git rm --cached .claude/worktrees/<name>`.
+2. Unregister the worktree: `git worktree remove --force .claude/worktrees/<name>`.
+3. Delete the leftover branch: `git branch -D claude/<name>`.
 
 With those done, `git worktree list` shows only the main checkout and `git status` is clean again.
 
