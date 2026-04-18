@@ -12,7 +12,7 @@ This is a follow-up to [Private Obsidian Vault Sync with GitHub](https://bil.ari
 
 ## What broke
 
-The GitSync setup worked reliably for edits to existing notes. Adding a new note was a different story. GitSync would report `repository index corrupted` after the sync — even though checking GitHub confirmed the commit had landed successfully.
+The GitSync setup worked reliably for edits to existing notes. Adding a new note was a different story. GitSync would report `repository index corrupted` after the sync --- even though checking GitHub confirmed the commit had landed successfully.
 
 The distinction is the diagnostic: modifying a tracked file only requires updating an existing entry in Git's index. Adding a new file requires Git to write a new entry into the index binary. On Android shared storage, GitSync isn't getting the atomic write it needs for that operation, so the local index ends up in an inconsistent state after every new note.
 
@@ -33,7 +33,7 @@ sequenceDiagram
   GS-->>O: ❌ "repository index corrupted"
 {{< /mermaid >}}
 
-The data was never actually lost. The push succeeded. But the local index was corrupted, and GitSync would refuse to operate cleanly until the index was rebuilt. That's a friction tax I didn't want to pay indefinitely.
+The data was never actually lost. The push succeeded. But the local index was corrupted, and GitSync would refuse to operate cleanly until the index was rebuilt. That's not a mental friction I want to keep paying --- seeing an error notifications pop-up on my phone wondering what went wrong, rather than getting on with my life.
 
 ## What I switched to
 
@@ -99,11 +99,11 @@ Navigate to the vault folder and switch the remote to SSH:
 
 ```bash
 cd ~/storage/shared/Obsidian/Obsidian-vault-main
-git config --global --add safe.directory /storage/emulated/0/Obsidian/Obsidian-vault-main
-git remote set-url origin git@github.com:bilarikan/Obsidian-vault-main.git
+git config --global --add safe.directory /storage/emulated/0/folder/Obsidian-vault-folder-name
+git remote set-url origin git@github.com:username/Obsidian-vault-folder-name.git
 ```
 
-The `safe.directory` line is required. Git's ownership check flags repos on Android shared storage because the folder's user ID doesn't match the Termux process user ID. This is a security feature, not a bug, and the one-time config exception is the intended resolution.
+The `safe.directory` line is required. Git's ownership check flags repos on Android shared storage because the folder's user ID doesn't match the Termux process user ID. This is a security feature, not a bug, and the one-time config exception seems to be the intended solution.
 
 Verify the remote:
 
@@ -111,7 +111,7 @@ Verify the remote:
 git remote -v
 ```
 
-You should see `git@github.com:bilarikan/Obsidian-vault-main.git` for both fetch and push.
+You should see `git@github.com:username/Obsidian-vault-folder-name` for both fetch and push.
 
 Test a pull:
 
@@ -124,7 +124,7 @@ git pull
 Open Termux, navigate to the vault, pull before editing and push after:
 
 ```bash
-cd ~/storage/shared/Obsidian/Obsidian-vault-main
+cd ~/storage/shared/Obsidian/Obsidian-vault-folder-name
 git pull
 ```
 
@@ -139,7 +139,7 @@ git push
 If you want to reduce the typing, here's the whole pull-stage-commit-push cycle as a single pasteable command:
 
 ```bash
-cd ~/storage/shared/Obsidian/Obsidian-vault-main && \
+cd ~/storage/shared/Obsidian/Obsidian-vault-folder-name && \
 git pull --rebase && \
 git add -A && \
 (git diff --cached --quiet || git commit -m "vault sync: $(date '+%Y-%m-%d %H:%M')") && \
@@ -148,11 +148,11 @@ git push
 
 A few deliberate choices in here worth unpacking.
 
-`git add -A` instead of `git add .` ensures deletions get staged — if you removed a note, you want that reflected on every device. The `--quiet ||` conditional on the commit means the command won't error out if you open Obsidian, change nothing, and run it anyway. `--rebase` on the pull keeps your history linear instead of adding a merge commit every time you sync from a second device. And the `&&` chaining means the whole thing stops and surfaces an error if any step fails, so a bad pull won't let you push on top of a conflict.
+`git add -A` instead of `git add .` ensures deletions get staged --- if you removed a note, you want that reflected on every device. The `--quiet ||` conditional on the commit means the command won't error out if you open Obsidian, change nothing, and run it anyway. `--rebase` on the pull keeps your history linear instead of adding a merge commit every time you sync from a second device. And the `&&` chaining means the whole thing stops and surfaces an error if any step fails, so a bad pull won't let you push on top of a conflict.
 
 I may wrap this into a short shell script to reduce the typing overhead further.
 
-It's also worth being honest about what this isn't. "Sync" implies two-way reconciliation — the Dropbox or iCloud model where changes on both ends get merged automatically. Git doesn't do that. What `git pull` actually does is `fetch` + `rebase` (or `merge`), which means if two devices have edited the same file, Git will stop and ask you to resolve the conflict manually before it proceeds.
+It's also worth being honest about what this isn't. "Sync" implies two-way reconciliation --- the Dropbox or iCloud model where changes on both ends get merged automatically. Git doesn't do that. What `git pull` actually does is `fetch` + `rebase` (or `merge`), which means if two devices have edited the same file, Git will stop and ask you to resolve the conflict manually before it proceeds.
 
 For a solo vault where you're disciplined about finishing on one device before picking up on another, that scenario is unlikely. But it's the ceiling to know about before you hit it.
 
@@ -164,9 +164,9 @@ git fetch origin && git reset --hard origin/main
 
 ## What this replaces
 
-Section 9 of the original post (GitSync setup) is superseded by this. Everything else in that post remains current.
+Section 9 of the [original post](https://bil.arikan.ca/posts/obsidian-private-github-sync/) (GitSync setup) is superseded by this. Everything else in that post remains current.
 
-The short version of why: GitSync wraps Git in an Android app context and inherits the filesystem atomicity constraints of Android shared storage. Termux runs Git in a proper Linux userspace and doesn't have that problem. The corruption issue is architectural, not a GitSync bug to wait out.
+The short version of why : GitSync wraps Git in an Android app context and inherits the filesystem atomicity constraints of Android shared storage. Termux runs Git in a proper Linux userspace and doesn't have that problem. The corruption issue is architectural, not a GitSync bug to wait out.
 
 ## Updated Android architecture
 

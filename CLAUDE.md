@@ -50,7 +50,8 @@
 - Call out constraints and risks directly (for example security, privacy, measurement limits), then state the mitigation.
 - Preserve transparent iteration notes: explicitly document failures, corrections, and what changed after troubleshooting.
 - Prefer scenario-driven explanation: define context, target audience, and business/learning impact before technical implementation details.
-- Prefer the use of two hypens for en dashes `--` and three hypens for em dashes `---`, and try not to overuse em dashes.
+- Prefer the use of two hypens for en dashes `--` and three hypens for em dashes `---`.
+- Use French-style colon spacing as in this exmaple `Like this : `.
 - Prefer Mermaid.js diagrams to Top Down `TD` orientation.
 
 ## Preferred Post Structure For This Site
@@ -80,21 +81,6 @@
   - Blockquoted `Outcome` and `Next experiment` notes for progress snapshots.
   - Checklists for status tracking (`[x]` / `[ ]`) when documenting experiments.
   - Short "breakdown" subsections to explain actor/verb/object, risk/mitigation, or step intent.
-
-## Voice Calibration Sources
-- Always calibrate voice from `AGENT RESOURCES/` first.
-- Primary writing references in that folder (first priority):
-  - `AGENT RESOURCES/Introduction to experiments.md`
-  - `AGENT RESOURCES/Experiment 01 ‐ Static Site Statement.md`
-  - `AGENT RESOURCES/Experiment 02 ‐ Secure Credentials and Data Privacy.md`
-  - `AGENT RESOURCES/Experiment 03 ‐ Measurement Strategy & KPIs.md`
-- Primary speaking references in that folder (second priority for cadence and transitions):
-  - `AGENT RESOURCES/Introduction-captions.vtt`
-  - `AGENT RESOURCES/Data model-captions.vtt`
-  - `AGENT RESOURCES/Demonstrate xapi-captions.vtt`
-  - `AGENT RESOURCES/Security considerations-captions.vtt`
-- If writing reference `.md` files are empty or missing, use the `.vtt` files as the active voice baseline.
-- De-prioritize other local draft documents if they conflict with `AGENT RESOURCES/` sources.
 
 ## Visual Shortcodes (Congo)
 - Mermaid diagrams are supported via:
