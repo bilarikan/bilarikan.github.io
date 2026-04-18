@@ -18,3 +18,4 @@ pnpm-debug.log*
 
 # Claude Code auto-generated files (project instructions live in the tracked root CLAUDE.md)
 CLAUDE.md
+.claude/
