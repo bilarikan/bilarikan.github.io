@@ -1,4 +1,4 @@
-# AGENT.MD
+# CLAUDE.md
 
 ## Project Overview
 - Site: `bil.arikan.ca`
