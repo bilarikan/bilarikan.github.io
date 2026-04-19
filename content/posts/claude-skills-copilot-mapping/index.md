@@ -76,6 +76,19 @@ Claude skills use a progressive disclosure model that keeps context lean :
 | **SKILL.md body** | Full instructions | On trigger |
 | **Bundled resources** | Scripts, references, assets | On demand, as needed |
 
+{{< mermaid >}}
+sequenceDiagram
+  participant U as User
+  participant C as Claude
+  participant S as Skill bundle
+  Note over C: Metadata always in context
+  U->>C: prompt matches skill description
+  C->>S: load SKILL.md body
+  Note over C: Instructions now in context
+  C->>S: view references/foo.md (as needed)
+  C->>S: run scripts/bar.py (as needed)
+{{< /mermaid >}}
+
 Large reference documents live in `references/` and are only pulled into context when the instructions explicitly call for them. Scripts in `scripts/` can execute without being read into the context window at all.
 
 This matters because it means a skill can carry a lot of supporting material --- brand guidelines, schema definitions, output templates --- without paying a context cost upfront.
@@ -90,6 +103,29 @@ Now the translation. Before the mapping itself, one distinction worth naming up 
 - **Copilot Studio** --- a full agent-building environment. It produces deployable declarative and custom agents, and it integrates Power Automate for scheduled triggers, connectors, and multi-step workflows.
 
 If a workflow needs to run on its own --- pull email on a schedule, analyse it, draft a reply --- the chat agent tab cannot do it. Copilot Studio can, but the automation is built in Power Automate, not in the agent itself. That shape is where the three-to-five-hour estimate comes from.
+
+{{< mermaid >}}
+flowchart TD
+  subgraph Claude[Claude skill]
+    C1[SKILL.md frontmatter<br/>name + description]
+    C2[SKILL.md body<br/>instructions]
+    C3[references/]
+    C4[scripts/]
+    C5[assets/]
+  end
+  subgraph Copilot[Copilot Studio agent]
+    M1[Agent manifest<br/>scope + purpose]
+    M2[System prompt /<br/>instructions block]
+    M3[Knowledge sources<br/>SharePoint / uploads]
+    M4[Power Automate flows<br/>+ connectors]
+    M5[SharePoint libraries /<br/>templates]
+  end
+  C1 -.maps to.-> M1
+  C2 -.maps to.-> M2
+  C3 -.maps to.-> M3
+  C4 -.maps to.-> M4
+  C5 -.maps to.-> M5
+{{< /mermaid >}}
 
 ### Skill = Copilot Studio declarative agent or custom agent
 
@@ -195,6 +231,23 @@ Copilot Studio is the correct tool if you are building inside M365 --- agents th
 But for workflows that connect to external services --- pulling from Gmail, building a personal triage loop, chaining steps that run end to end without an IT footprint --- Claude is a fundamentally different experience. Not because Claude is "better," but because it is designed for a different builder profile. The skill system, the tool use model, the scripting layer : they are all optimised for a practitioner who is building for themselves, iterating fast, and owns the compute. The M365 system is optimised for a practitioner who is building for an organisation, deploying to others, and operating inside IT governance.
 
 For the practitioner's workflow specifically --- Gmail as the source, scheduled polling, analyse-and-draft-back as the steps, personal scope with no IT footprint --- the chat agent tab is not an option : it is conversational-only. Copilot Studio can do it, but the automation lives in Power Automate, and the agent is a thin layer above it. You are not building an agent that happens to schedule itself ; you are wiring a Power Automate flow with an agent attached. That is the architectural shape behind the three-to-five-hour estimate, and it is where the gap against Claude is widest.
+
+{{< mermaid >}}
+flowchart TD
+  subgraph ClaudeLoop[Claude : one agent, one loop]
+    A1[Claude agent]
+    A1 --> A2[Pull Gmail]
+    A2 --> A3[Analyse + flag]
+    A3 --> A4[Draft reply]
+    A4 --> A1
+  end
+  subgraph CopilotLoop[Copilot Studio : flow with agent attached]
+    B1[Scheduler trigger] --> B2[Power Automate<br/>Gmail connector]
+    B2 --> B3[Power Automate<br/>call Copilot agent]
+    B3 --> B4[Copilot agent<br/>analyse + draft]
+    B4 --> B5[Power Automate<br/>send reply]
+  end
+{{< /mermaid >}}
 
 The three-to-five hour estimate for Power Automate is not a capability failure. It is the cost of building inside enterprise infrastructure. That cost is sometimes worth it --- when the distribution, the security, the audit trail, or the surface integration matters. It is sometimes not worth it --- when you are validating an idea and need to know if it works before you invest in the deployment layer.
 
