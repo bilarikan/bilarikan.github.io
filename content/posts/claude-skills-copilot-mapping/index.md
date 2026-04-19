@@ -8,11 +8,11 @@ categories: ["experiments"]
 draft: false
 ---
 
-A question that comes up often when people move between Claude and Microsoft 365 Copilot : why does building the same kind of workflow feel so different? One practitioner I spoke with had built an automated Gmail triage workflow in Claude --- pulling emails, analysing them, flagging them, drafting a digest --- in about an hour. When she asked Copilot to do something similar, the answer was : use Power Automate to string the steps together, budget three to five hours.
+A question that comes up often when people move between Claude and Microsoft 365 Copilot : why does building the same kind of workflow feel so different? One practitioner I spoke with had built an automated Gmail triage workflow in Claude --- pulling emails, analysing them, flagging them, drafting a digest --- in about an hour. When she asked Copilot to do something similar, the answer was : use Power Automate to string the steps together, budget three to five hours. 
 
-The gap is real. And it is not a capability gap --- it is an architectural one.
+The gap is real, and it is not a capability gap --- it is an architectural one. The three-to-five-hour estimate is only part of the cost : it does not account for the technical debt of working inside an ecosystem Microsoft has retrofitted as an approximation of an LLM harness, cobbled together from business automation products built long before Copilot existed.
 
-I had been circling this question from a different angle. I recently built a translation localisation agent in Copilot Studio at Sage --- an orchestrator that routes document localisation jobs to specialist child agents, each carrying the right regional rules, terminology, and formatting for a specific country and product. While building it, I kept noticing that the architecture I was reaching for looked a lot like something I'd seen in Claude's skill system : discrete, composable agents coordinated by a higher-level orchestrator, each doing one thing well.
+I had been circling this question from a different angle. I recently built a proof-of-concept translation localisation agent in Copilot Studio --- an orchestrator that routes document localisation jobs to specialist child agents, each carrying the right regional rules, terminology, and formatting for a specific country and product. While building it, I kept noticing that the architecture I was reaching for looked a lot like something I'd seen in Claude's skill system : discrete, composable agents coordinated by a higher-level orchestrator, each doing one thing well.
 
 That parallel prompted the question I want to work through here : **how does Claude's skill architecture map to the Microsoft 365 Copilot ecosystem, and what does the comparison reveal about where the experience gap comes from?**
 
@@ -84,7 +84,12 @@ This matters because it means a skill can carry a lot of supporting material ---
 
 ## Mapping to the Microsoft 365 Copilot ecosystem
 
-Now the translation.
+Now the translation. Before the mapping itself, one distinction worth naming up front : "Copilot" is not one surface. Inside the M365 experience there are two places you can build agents, and they are not interchangeable.
+
+- **Generic agent tab in Copilot chat** --- a conversational builder for in-session agents. It lives in the sidebar. It runs while you are chatting. It cannot schedule itself, cannot trigger on an inbound event, and cannot run when you are not in the chat.
+- **Copilot Studio** --- a full agent-building environment. It produces deployable declarative and custom agents, and it integrates Power Automate for scheduled triggers, connectors, and multi-step workflows.
+
+If a workflow needs to run on its own --- pull email on a schedule, analyse it, draft a reply --- the chat agent tab cannot do it. Copilot Studio can, but the automation is built in Power Automate, not in the agent itself. That shape is where the three-to-five-hour estimate comes from.
 
 ### Skill = Copilot Studio declarative agent or custom agent
 
@@ -177,6 +182,8 @@ The honest answer is : both.
 Copilot Studio is the correct tool if you are building inside M365 --- agents that read email from Outlook, act on SharePoint documents, trigger Teams notifications, or route into Dataverse. The native surface integration is real and the value is real. The translation localisation agent I built at Sage lives inside our tenant, accesses our SharePoint-hosted glossaries, and routes to sub-agents through Teams --- none of that would work in Claude without significant infrastructure work.
 
 But for workflows that connect to external services --- pulling from Gmail, building a personal triage loop, chaining steps that run end to end without an IT footprint --- Claude is a fundamentally different experience. Not because Claude is "better," but because it is designed for a different builder profile. The skill system, the tool use model, the scripting layer : they are all optimised for a practitioner who is building for themselves, iterating fast, and owns the compute. The M365 system is optimised for a practitioner who is building for an organisation, deploying to others, and operating inside IT governance.
+
+For the practitioner's workflow specifically --- Gmail as the source, scheduled polling, analyse-and-draft-back as the steps, personal scope with no IT footprint --- the chat agent tab is not an option : it is conversational-only. Copilot Studio can do it, but the automation lives in Power Automate, and the agent is a thin layer above it. You are not building an agent that happens to schedule itself ; you are wiring a Power Automate flow with an agent attached. That is the architectural shape behind the three-to-five-hour estimate, and it is where the gap against Claude is widest.
 
 The three-to-five hour estimate for Power Automate is not a capability failure. It is the cost of building inside enterprise infrastructure. That cost is sometimes worth it --- when the distribution, the security, the audit trail, or the surface integration matters. It is sometimes not worth it --- when you are validating an idea and need to know if it works before you invest in the deployment layer.
 
