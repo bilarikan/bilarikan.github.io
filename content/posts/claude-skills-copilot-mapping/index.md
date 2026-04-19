@@ -232,6 +232,19 @@ But for workflows that connect to external services --- pulling from Gmail, buil
 
 For the practitioner's workflow specifically --- Gmail as the source, scheduled polling, analyse-and-draft-back as the steps, personal scope with no IT footprint --- the chat agent tab is not an option : it is conversational-only. Copilot Studio can do it, but the automation lives in Power Automate, and the agent is a thin layer above it. You are not building an agent that happens to schedule itself ; you are wiring a Power Automate flow with an agent attached. That is the architectural shape behind the three-to-five-hour estimate, and it is where the gap against Claude is widest.
 
+{{< mermaid >}}
+flowchart LR
+  subgraph Claude["Claude"]
+    CA["Claude agent<br/>trigger · fetch · reason · draft"]
+  end
+  subgraph Copilot["Copilot Studio"]
+    direction LR
+    S[Scheduler] --> G[Gmail connector]
+    G --> A[Copilot agent<br/>analyse + draft]
+    A --> SD[Send connector]
+  end
+{{< /mermaid >}}
+
 The three-to-five hour estimate for Power Automate is not a capability failure. It is the cost of building inside enterprise infrastructure. That cost is sometimes worth it --- when the distribution, the security, the audit trail, or the surface integration matters. It is sometimes not worth it --- when you are validating an idea and need to know if it works before you invest in the deployment layer.
 
 Understanding the architecture helps you make that call clearly, rather than assuming one system is behind the other.
