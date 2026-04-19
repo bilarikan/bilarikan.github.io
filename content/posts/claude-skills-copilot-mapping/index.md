@@ -2,25 +2,23 @@
 title: "Claude Skills and the Copilot Parallel : A Practitioner's Map"
 date: 2026-04-18T08:00:00-04:00
 description: "What Claude's skill system is, how it works, and how its concepts map onto the Microsoft 365 Copilot ecosystem --- and why the architecture explains the experience gap practitioners keep running into."
-summary: "A practitioner who built a Gmail triage workflow in Claude in an hour was told it would take 3–5 hours in Copilot using Power Automate. That gap is real --- and it's architectural. Here is how Claude's skill system maps to M365 Copilot, and what the comparison reveals about where each system was designed to be used."
+summary: "Building the same workflow in Claude takes an hour; in Copilot it means Power Automate and three to five hours. That gap is real --- and it's architectural. Here is how Claude's skill system maps to M365 Copilot, and what the comparison reveals about where each system was designed to be used."
 tags: ["ai", "claude", "copilot", "agents", "workflow"]
 categories: ["experiments"]
 draft: false
 ---
 
-A colleague of mine --- a sharp product manager who runs excellent hackathons --- asked me a question that stuck. She had built an automated workflow in Claude : it pulls emails from Gmail, analyses them, flags them, and drafts a response back to her with the results. It took her about an hour to build, tune, and test.
+A question that comes up often when people move between Claude and Microsoft 365 Copilot : why does building the same kind of workflow feel so different? One practitioner I spoke with had built an automated Gmail triage workflow in Claude --- pulling emails, analysing them, flagging them, drafting a digest --- in about an hour. When she asked Copilot to do something similar, the answer was : use Power Automate to string the steps together, budget three to five hours.
 
-She then asked Microsoft Copilot if it could do something similar. The answer : use Power Automate to string the steps together, budget three to five hours.
+The gap is real. And it is not a capability gap --- it is an architectural one.
 
-Her question to me was : **is Copilot Studio the key to doing this properly, or is that gap just the reality of the system?**
-
-I had been thinking about this question already, from a different angle. I had recently built a translation localisation agent in Copilot Studio at Sage --- an orchestrator that routes document localisation jobs to specialist child agents, each carrying the right regional rules, terminology, and formatting for a specific country and product. While building it, I kept noticing that the architecture I was reaching for looked a lot like something I'd seen in Claude's skill system : discrete, composable agents coordinated by a higher-level orchestrator, each doing one thing well.
+I had been circling this question from a different angle. I recently built a translation localisation agent in Copilot Studio at Sage --- an orchestrator that routes document localisation jobs to specialist child agents, each carrying the right regional rules, terminology, and formatting for a specific country and product. While building it, I kept noticing that the architecture I was reaching for looked a lot like something I'd seen in Claude's skill system : discrete, composable agents coordinated by a higher-level orchestrator, each doing one thing well.
 
 That parallel prompted the question I want to work through here : **how does Claude's skill architecture map to the Microsoft 365 Copilot ecosystem, and what does the comparison reveal about where the experience gap comes from?**
 
 ## Goal
 
-To build a working mental model of Claude skills --- how they are structured, how they trigger, how they load --- and then map each layer to its closest equivalent in M365 Copilot. The aim is a practical translation guide, not a feature comparison. And at the end, I want to come back to the question my colleague asked and give it a real answer.
+To build a working mental model of Claude skills --- how they are structured, how they trigger, how they load --- and then map each layer to its closest equivalent in M365 Copilot. The aim is a practical translation guide, not a feature comparison. And at the end, I want to answer the gap question directly.
 
 ## Working assumption
 
@@ -172,13 +170,13 @@ The experience reflects the difference in design philosophy. Claude skills are b
 
 ## Back to the original question
 
-My colleague asked : is Copilot Studio the key, or is the gap just the reality of the system?
+Is Copilot Studio the key to closing the gap --- or is the gap just the reality of the system?
 
 The honest answer is : both.
 
 Copilot Studio is the correct tool if you are building inside M365 --- agents that read email from Outlook, act on SharePoint documents, trigger Teams notifications, or route into Dataverse. The native surface integration is real and the value is real. The translation localisation agent I built at Sage lives inside our tenant, accesses our SharePoint-hosted glossaries, and routes to sub-agents through Teams --- none of that would work in Claude without significant infrastructure work.
 
-But for the kind of workflow my colleague described --- connecting to external services, pulling from Gmail, building a personal triage loop that runs end to end --- Claude is a fundamentally different experience. Not because Claude is "better," but because it is designed for a different builder profile. The skill system, the tool use model, the scripting layer : they are all optimised for a practitioner who is building for themselves, iterating fast, and owns the compute. The M365 system is optimised for a practitioner who is building for an organisation, deploying to others, and operating inside IT governance.
+But for workflows that connect to external services --- pulling from Gmail, building a personal triage loop, chaining steps that run end to end without an IT footprint --- Claude is a fundamentally different experience. Not because Claude is "better," but because it is designed for a different builder profile. The skill system, the tool use model, the scripting layer : they are all optimised for a practitioner who is building for themselves, iterating fast, and owns the compute. The M365 system is optimised for a practitioner who is building for an organisation, deploying to others, and operating inside IT governance.
 
 The three-to-five hour estimate for Power Automate is not a capability failure. It is the cost of building inside enterprise infrastructure. That cost is sometimes worth it --- when the distribution, the security, the audit trail, or the surface integration matters. It is sometimes not worth it --- when you are validating an idea and need to know if it works before you invest in the deployment layer.
 
