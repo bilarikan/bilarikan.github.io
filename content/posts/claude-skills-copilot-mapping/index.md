@@ -120,6 +120,16 @@ The `scripts/` folder in a Claude skill --- executable code for deterministic, r
 
 The conceptual difference worth noting : Claude skill scripts are typically Python or bash running in a sandboxed compute environment, with broad flexibility. Power Automate actions are more constrained by connector availability but are natively integrated with the M365 surface --- Teams, Outlook, SharePoint, Dataverse.
 
+### Agent self-direction : improvise vs. pre-wire
+
+One behavioural difference is worth surfacing on its own, because it shapes the practitioner experience more than any single structural mapping above.
+
+Claude behaves as if it will figure out what it needs in the moment. If the task calls for a Python library it does not have, it installs it. If it needs a CSV that does not exist, it writes one. If a reference document is missing, it fetches or asks for it. The skill system sits at one end of this --- bundled resources, scripts, references that load on demand --- but the behaviour extends further : the agent improvises when the task shape does not match what was pre-configured.
+
+Copilot Studio agents operate against a pre-wired surface. Connectors are registered ahead of time. Knowledge sources are indexed before the agent runs. Power Automate flows are authored step by step. The agent does not invent a new connector mid-task ; it cannot install a new Python library ; it cannot decide that what the task really needs is a small script it was not given. If the tooling is not in place, the task stops and waits for a builder.
+
+The contrast is not accidental. Claude optimises for a practitioner whose agent needs to unblock itself. Copilot Studio optimises for an enterprise where every capability is reviewed and bounded by policy before it runs. The behavioural gap follows from that choice, not from model capability.
+
 ### Progressive disclosure = token budget management in Copilot
 
 This one does not have a named equivalent in Copilot Studio, but the problem it solves is the same : how do you give an agent access to a lot of specialised knowledge without exceeding the context window or degrading response quality?
@@ -142,6 +152,7 @@ A `.skill` file --- the packaged folder --- maps to a **Teams app manifest** or 
 | `references/` folder | Knowledge sources (SharePoint, uploaded files) |
 | `scripts/` folder | Power Automate flows / connector actions |
 | `assets/` folder | SharePoint document libraries / templates |
+| Agent self-direction (improvise) | Pre-wired connector and knowledge surface |
 | Progressive disclosure (3-level load) | RAG retrieval against indexed knowledge |
 | Trigger from description match | Agent routing in Copilot orchestration |
 
