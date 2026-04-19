@@ -77,16 +77,16 @@ Claude skills use a progressive disclosure model that keeps context lean :
 | **Bundled resources** | Scripts, references, assets | On demand, as needed |
 
 {{< mermaid >}}
-sequenceDiagram
-  participant U as User
-  participant C as Claude
-  participant S as Skill bundle
-  Note over C: Metadata always in context
-  U->>C: prompt matches skill description
-  C->>S: load SKILL.md body
-  Note over C: Instructions now in context
-  C->>S: view references/foo.md (as needed)
-  C->>S: run scripts/bar.py (as needed)
+flowchart TD
+  M[Metadata : name + description<br/>always in context]
+  T[Trigger : prompt matches description]
+  B[SKILL.md body loaded<br/>instructions now in context]
+  R[references/ viewed<br/>as needed]
+  S[scripts/ executed<br/>as needed]
+  M --> T
+  T --> B
+  B --> R
+  B --> S
 {{< /mermaid >}}
 
 Large reference documents live in `references/` and are only pulled into context when the instructions explicitly call for them. Scripts in `scripts/` can execute without being read into the context window at all.
