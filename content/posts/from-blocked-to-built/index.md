@@ -27,61 +27,61 @@ Analyse all of this. Recontextualise it for a different audience, different lear
 
 ```
 source-training/
-├── 01 - Support Methodology/
-│   ├── Support Methodology - Core.pptx           # 60+ slides, group activities, classroom scenario
-│   ├── Support Methodology - Core.pdf
-│   └── Error Code Reference.pdf
-├── 02 - System Setup/
-│   ├── System Setup - Core.pptx                  # Accounts payable, receivable, company config
-│   ├── System Setup - Core.pdf
+├── 01 - Support Process/
+│   ├── Support Process - Core.pptx               # 60+ slides, group activities, classroom scenario
+│   ├── Support Process - Core.pdf
+│   └── Error Reference Guide.pdf
+├── 02 - System Configuration/
+│   ├── System Configuration - Core.pptx          # Account setup, company configuration, initial data
+│   ├── System Configuration - Core.pdf
 │   └── data-import-template.csv
 ├── 03 - Transaction Processing/
 │   ├── Transaction Processing.pptx               # Payments, corrections, reconciliation
 │   ├── Transaction Processing.pdf
-│   ├── Payments - Trainer Guide.docx
-│   ├── Payments - Delegate Workbook.docx
-│   ├── Revenue - Trainer Guide.docx
-│   └── Revenue - Delegate Workbook.docx
-├── 04 - Procurement/
-│   ├── Procurement.pptx                          # Price lists, approvals workflow
-│   ├── Procurement.pdf
-│   ├── procurement-transaction-definitions.csv
+│   ├── Transactions - Trainer Guide.docx
+│   ├── Transactions - Delegate Workbook.docx
+│   ├── Financial Operations - Trainer Guide.docx
+│   └── Financial Operations - Delegate Workbook.docx
+├── 04 - Purchasing/
+│   ├── Purchasing.pptx                           # Purchasing workflow, approvals
+│   ├── Purchasing.pdf
+│   ├── purchasing-transaction-definitions.csv
 │   └── items-import-template.csv
-├── 05 - Sales Workflow/
-│   ├── Sales Workflow.pptx                       # Order conversion, workflow steps
-│   ├── Sales Workflow.pdf
+├── 05 - Sales Process/
+│   ├── Sales Process.pptx                        # Order management, workflow steps
+│   ├── Sales Process.pdf
 │   └── sales-transaction-definitions.csv
-├── 06 - Tax Compliance/
-│   ├── Tax Compliance - Introduction.pptx
-│   ├── Tax Compliance - Advanced.pptx            # Multi-jurisdiction, tax engine troubleshooting
-│   ├── Tax Compliance - Introduction.pdf
-│   └── Tax Compliance - Advanced.pdf
+├── 06 - Compliance & Regulatory/
+│   ├── Compliance - Introduction.pptx
+│   ├── Compliance - Advanced.pptx                # Advanced configuration, troubleshooting
+│   ├── Compliance - Introduction.pdf
+│   └── Compliance - Advanced.pdf
 ├── 07 - Asset Management/
 │   ├── Asset Management.pptx
 │   ├── Asset Management.pdf
 │   └── Asset Management - Partner Session.pptx   # Separate partner-facing session
-├── 08 - Banking & Reconciliation/
-│   ├── Banking & Reconciliation.pptx             # Bank feeds, reconciliation scenarios
-│   ├── Banking & Reconciliation.pdf
-│   ├── Bank Feed Troubleshooting.pptx            # ← internal process content mixed in
-│   └── Bank Feed Troubleshooting.pdf
-├── 09 - Inventory Control/                       # ⚠ WIP — two partial versions
-│   ├── Inventory Control - Cycle 1.pptx
-│   ├── Inventory Control - Cycle 1.pdf
+├── 08 - Reconciliation/
+│   ├── Reconciliation.pptx                       # Reconciliation scenarios
+│   ├── Reconciliation.pdf
+│   ├── Reconciliation Troubleshooting.pptx       # ← internal process content mixed in
+│   └── Reconciliation Troubleshooting.pdf
+├── 09 - Inventory Management/                    # ⚠ WIP — two partial versions
+│   ├── Inventory - Cycle 1.pptx
+│   ├── Inventory - Cycle 1.pdf
 │   └── WIP/
-│       └── Inventory Control - Detailed Reporting.pptx
-├── 10 - Reporting & Analysis/
-│   ├── Reporting & Analysis.pptx                 # Report reconciliation, diagnostic framework
-│   └── Reporting & Analysis.pdf
-├── 11 - Industry Add-ons/
-│   ├── Industry Add-ons.pptx                     # Niche vertical modules, no current partner coverage
-│   ├── Industry Add-ons.pdf
-│   └── Industry Add-ons Workflow.pdf
-├── 12 - Extended Features/
-│   ├── Extended Features.pptx                    # Projects, time tracking, spend management (overview only)
-│   └── Extended Features.pdf
+│       └── Inventory - Detailed Reporting.pptx
+├── 10 - Reporting & Analytics/
+│   ├── Reporting & Analytics.pptx                # Report reconciliation, diagnostic framework
+│   └── Reporting & Analytics.pdf
+├── 11 - Vertical Add-ons/
+│   ├── Vertical Add-ons.pptx                     # Niche vertical modules, no current partner coverage
+│   ├── Vertical Add-ons.pdf
+│   └── Vertical Add-ons Workflow.pdf
+├── 12 - Advanced Features/
+│   ├── Advanced Features.pptx                    # Optional modules, overview only
+│   └── Advanced Features.pdf
 └── 13 - Platform & Access/
-    ├── Platform & Access.pptx                    # Permissions, MFA, login errors, portal issues
+    ├── Platform & Access.pptx                    # Permissions, login, portal access
     └── Platform & Access.pdf
 
 13 modules · ~80 hours of ILT content · built for internal colleagues in a classroom
