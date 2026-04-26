@@ -27,62 +27,62 @@ Analyse all of this. Recontextualise it for a different audience, different lear
 
 ```
 source-training/
-├── 01 - Support Process/
-│   ├── Support Process - Core.pptx               # 60+ slides, group activities, classroom scenario
-│   ├── Support Process - Core.pdf
-│   └── Error Reference Guide.pdf
-├── 02 - System Configuration/
-│   ├── System Configuration - Core.pptx          # Account setup, company configuration, initial data
-│   ├── System Configuration - Core.pdf
+├── Module 01/
+│   ├── Module 01 Deck.pptx                       # 60+ slides, group activities, classroom scenario
+│   ├── Module 01 Deck.pdf
+│   └── Reference Guide.pdf
+├── Module 02/
+│   ├── Module 02 Deck.pptx
+│   ├── Module 02 Deck.pdf
 │   └── data-import-template.csv
-├── 03 - Transaction Processing/
-│   ├── Transaction Processing.pptx               # Payments, corrections, reconciliation
-│   ├── Transaction Processing.pdf
-│   ├── Transactions - Trainer Guide.docx
-│   ├── Transactions - Delegate Workbook.docx
-│   ├── Financial Operations - Trainer Guide.docx
-│   └── Financial Operations - Delegate Workbook.docx
-├── 04 - Purchasing/
-│   ├── Purchasing.pptx                           # Purchasing workflow, approvals
-│   ├── Purchasing.pdf
-│   ├── purchasing-transaction-definitions.csv
+├── Module 03/
+│   ├── Module 03 Deck.pptx
+│   ├── Module 03 Deck.pdf
+│   ├── Module 03 - Trainer Guide A.docx
+│   ├── Module 03 - Delegate Workbook A.docx
+│   ├── Module 03 - Trainer Guide B.docx
+│   └── Module 03 - Delegate Workbook B.docx
+├── Module 04/
+│   ├── Module 04 Deck.pptx
+│   ├── Module 04 Deck.pdf
+│   ├── module-04-transaction-definitions.csv
 │   └── items-import-template.csv
-├── 05 - Sales Process/
-│   ├── Sales Process.pptx                        # Order management, workflow steps
-│   ├── Sales Process.pdf
-│   └── sales-transaction-definitions.csv
-├── 06 - Compliance & Regulatory/
-│   ├── Compliance - Introduction.pptx
-│   ├── Compliance - Advanced.pptx                # Advanced configuration, troubleshooting
-│   ├── Compliance - Introduction.pdf
-│   └── Compliance - Advanced.pdf
-├── 07 - Asset Management/
-│   ├── Asset Management.pptx
-│   ├── Asset Management.pdf
-│   └── Asset Management - Partner Session.pptx   # Separate partner-facing session
-├── 08 - Reconciliation/
-│   ├── Reconciliation.pptx                       # Reconciliation scenarios
-│   ├── Reconciliation.pdf
-│   ├── Reconciliation Troubleshooting.pptx       # ← internal process content mixed in
-│   └── Reconciliation Troubleshooting.pdf
-├── 09 - Inventory Management/                    # ⚠ WIP — two partial versions
-│   ├── Inventory - Cycle 1.pptx
-│   ├── Inventory - Cycle 1.pdf
+├── Module 05/
+│   ├── Module 05 Deck.pptx
+│   ├── Module 05 Deck.pdf
+│   └── module-05-transaction-definitions.csv
+├── Module 06/
+│   ├── Module 06 Deck - Part 1.pptx
+│   ├── Module 06 Deck - Part 2.pptx
+│   ├── Module 06 Deck - Part 1.pdf
+│   └── Module 06 Deck - Part 2.pdf
+├── Module 07/
+│   ├── Module 07 Deck.pptx
+│   ├── Module 07 Deck.pdf
+│   └── Module 07 - Partner Session.pptx          # Separate partner-facing session
+├── Module 08/
+│   ├── Module 08 Deck.pptx
+│   ├── Module 08 Deck.pdf
+│   ├── Module 08 - Troubleshooting.pptx          # ← internal process content mixed in
+│   └── Module 08 - Troubleshooting.pdf
+├── Module 09/                                    # ⚠ WIP — two partial versions
+│   ├── Module 09 Deck - Cycle 1.pptx
+│   ├── Module 09 Deck - Cycle 1.pdf
 │   └── WIP/
-│       └── Inventory - Detailed Reporting.pptx
-├── 10 - Reporting & Analytics/
-│   ├── Reporting & Analytics.pptx                # Report reconciliation, diagnostic framework
-│   └── Reporting & Analytics.pdf
-├── 11 - Vertical Add-ons/
-│   ├── Vertical Add-ons.pptx                     # Niche vertical modules, no current partner coverage
-│   ├── Vertical Add-ons.pdf
-│   └── Vertical Add-ons Workflow.pdf
-├── 12 - Advanced Features/
-│   ├── Advanced Features.pptx                    # Optional modules, overview only
-│   └── Advanced Features.pdf
-└── 13 - Platform & Access/
-    ├── Platform & Access.pptx                    # Permissions, login, portal access
-    └── Platform & Access.pdf
+│       └── Module 09 - Detailed Reporting.pptx
+├── Module 10/
+│   ├── Module 10 Deck.pptx
+│   └── Module 10 Deck.pdf
+├── Module 11/
+│   ├── Module 11 Deck.pptx                       # Niche vertical modules, no current partner coverage
+│   ├── Module 11 Deck.pdf
+│   └── Module 11 - Workflow.pdf
+├── Module 12/
+│   ├── Module 12 Deck.pptx
+│   └── Module 12 Deck.pdf
+└── Module 13/
+    ├── Module 13 Deck.pptx
+    └── Module 13 Deck.pdf
 
 13 modules · ~80 hours of ILT content · built for internal colleagues in a classroom
 ```
