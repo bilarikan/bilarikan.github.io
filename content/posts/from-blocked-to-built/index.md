@@ -114,12 +114,12 @@ Each stage ran in a fresh session with a purpose-written prompt. Each produced o
 
 {{< mermaid >}}
 flowchart TD
-    A["Stage 1\nSituation Analysis\nWhat exists, why it stalled,\nwhat the adaptation gap is"] --> B["Stage 2\nPlan of Action\nPhased structure with output\ndefinitions, not generic WBS"]
-    B --> C["Stage 3\nWorking Assumptions\n4 explicit assumptions with\nconsequences + override conditions"]
-    C --> D["Stage 4\nContent Triage Matrix\n13 source modules scored\nagainst 4 criteria"]
-    D --> E["Stage 5\nTriage Summary\nNarrative patterns the matrix\nalone doesn't surface"]
-    E --> F["Stage 6\nProgramme Outline\nTwo audience-specific versions\ngrounded in triage findings"]
-    F --> G["Stage 7\nAnalysis & Recommendations\nStakeholder-facing synthesis\nwith named decision options"]
+    A["Stage 1<br/>Situation Analysis<br/>What exists, why it stalled,<br/>what the adaptation gap is"] --> B["Stage 2<br/>Plan of Action<br/>Phased structure with output<br/>definitions, not generic WBS"]
+    B --> C["Stage 3<br/>Working Assumptions<br/>4 explicit assumptions with<br/>consequences + override conditions"]
+    C --> D["Stage 4<br/>Content Triage Matrix<br/>13 source modules scored<br/>against 4 criteria"]
+    D --> E["Stage 5<br/>Triage Summary<br/>Narrative patterns the matrix<br/>alone doesn't surface"]
+    E --> F["Stage 6<br/>Programme Outline<br/>Two audience-specific versions<br/>grounded in triage findings"]
+    F --> G["Stage 7<br/>Analysis & Recommendations<br/>Stakeholder-facing synthesis<br/>with named decision options"]
 {{< /mermaid >}}
 
 **Stage 1 --- Situation Analysis.** Feed in the programme documentation, the SME review, and the kick-off materials. The model reads them and produces structured findings across five areas : original intent, why it broke down, what exists, the adaptation gap, open questions. The practitioner validates, corrects, and redirects. The hard constraint built into the prompt : *do not suggest a plan yet. Understanding only.*
