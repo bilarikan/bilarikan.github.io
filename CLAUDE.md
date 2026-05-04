@@ -62,6 +62,7 @@
 - Prefer the use of two hypens for en dashes `--` and three hypens for em dashes `---`.
 - Use French-style colon spacing as in this exmaple `Like this : `.
 - Prefer Mermaid.js diagrams to Top Down `TD` orientation.
+- Rather than `\n` in the Mermaid node labels, use `<br/>` for line breaks to render correctly.
 
 ## Preferred Post Structure For This Site
 - Open with a clear framing sentence and one guiding question.
