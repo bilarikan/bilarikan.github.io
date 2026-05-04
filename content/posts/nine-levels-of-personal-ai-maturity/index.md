@@ -12,6 +12,16 @@ Last year many organizations had bought every employee a Microsoft 365 Copilot l
 
 The frame for this work comes from [Pascal Gaudé](https://www.linkedin.com/in/pascal-gaude/), who proposed the nine-level maturity model that **AI Spark** is now using to plan our hackathons, tutorials, and bootcamps. The model below is his ; the 'cliff' take in this post is mine.
 
+## Complementary infographics
+
+Full-resolution PNGs for the figures in this post live in the repository ; open a link below if you want a sharper copy :
+
+1. **Personal AI maturity model** : [high resolution on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ1.png).
+2. **The Cliff between using and building** : [high resolution on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ2.png).
+3. **The plateau at before the Cliff** : [high resolution on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ3.png).
+4. **Match the learning format to the level** : [high resolution on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ4.png).
+5. **Not everyone wants to tinker** : [high resolution on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ5.png).
+
 ## Goal
 
 Give leaders a mental model of personal AI maturity that matches what their teams actually need to *learn* at each stage, and that shows where most rollouts stall.
@@ -26,8 +36,6 @@ Here is Pascal's model after I added my 'cliff' concept :
 
 ![Nine levels of personal AI maturity model](SCR-20260503-1.png)
 
-*High resolution : [open full image on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ1.png).*
-
 The first five levels describe how a person *uses* AI : from being aware of it, to prompting it, to integrating it into the tools where work actually happens. Levels six through nine describe how a person *builds and governs* AI : creating agents, orchestrating them, and shaping the systems and policies they live in.
 
 I think the model holds. I also think the most important thing about it is something you do not see at first glance : there is a cliff in the middle.
@@ -37,8 +45,6 @@ I think the model holds. I also think the most important thing about it is somet
 The largest jump in the model is not from level one to two ; it is from level five to six. Up to level five you are an increasingly skilled user of AI. From level six you are creating something --- an agent, a tool, a small system --- that other people use. That sounds incremental. It is not. The skill stack you need to cross changes shape entirely :
 
 ![Cliff between using AI and building with AI](SCR-20260503-2.png)
-
-*High resolution : [open full image on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ2.png).*
 
 This is the move that defeats most "we gave everyone an AI tool" rollouts. Adoption stalls at level three or four because the next step requires capabilities the organisation never funded learning and enablement for. [Nate B Jones has been making this point well](https://www.youtube.com/watch?v=QWzLPn164w0) : he describes prompt engineering, context engineering, and intent engineering as three separate disciplines, and the second and third only become real once you are *building* something rather than chatting with something. Until you have to design what an agent should know, what it should do without you, and what it must never do, "engineer" was just a word.
 
@@ -66,8 +72,6 @@ What follows is calibration, not autobiography. I am still learning at every sta
 
 ![Levels through Adopter in the maturity ladder](SCR-20260503-3.png)
 
-*High resolution : [open full image on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ3.png).*
-
 **Level 6 --- The Builder.** I began exploring Google AI Studio, customising multimodal live Gemini models for real-world guidance use cases. This was the first level where I was clearly building something for someone else to use, and where I started running into the limits of model capability rather than the limits of my prompting. I started to dig deeper into context windows, tokenization, AI Development Kits, and how an LLM is turned into an agent by wrapping it with more and more capabilities.
 
 **Level 7 --- The Orchestrator.** When being asked to deliver real AI solutions to business challenges, I went deep on Anthropic's Claude Code and OpenAI's Codex. The interesting work was no longer "use the model" ; it was understanding how cloud-only agents and local-asset agents collaborated on the same task --- what each one knew, where state lived, how handoffs were structured. Orchestration is its own skill, and it is not a longer prompt.
@@ -86,8 +90,6 @@ People who reach level seven will benefit most. People who do not will still ben
 
 ![Orchestration and levels seven through nine](SCR-20260503-4.png)
 
-*High resolution : [open full image on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ4.png).*
-
 Levels eight and nine read more like role descriptions than continued personal stages. The Engineer is the person who builds the guardrails ; the Architect is the person who designs systems that improve themselves. Most organisations may only need a limited amount of each and may not need most of their people to be either.
 
 ## Design for the personas you serve, not the ones you wish you served
@@ -95,10 +97,6 @@ Levels eight and nine read more like role descriptions than continued personal s
 There is a related trap on the *building* side that follows from this. Not every user of an AI product wants to tinker. Some people just want the AI to do the thing. They are happy at level two or three, and a product designed well for them will respect that.
 
 A customer-facing AI assistant like the in-app assistants finance teams now expect is designed for level-two users : people who know AI exists and want it to help them right now, in the application they already use. An internal Learning Program Owner agent is designed for level-three or four operators : people who can prompt and integrate but do not want to build the agent themselves. That is correct, not a failure of ambition. Confusing personal maturity with product design --- assuming everyone will eventually want to be a builder and shipping accordingly --- is its own form of stalling.
-
-![Product design vs personal maturity personas](SCR-20260503-5.png)
-
-*High resolution : [open full image on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ5.png).*
 
 ## What this means for Learning & Development
 
@@ -109,8 +107,6 @@ The model gives a clean way to map intervention shape to learner stage. My curre
 3. Bootcamps, apprenticeships, and project-based learning are the only formats I think can move people to levels six and seven. The work is sustained practice with feedback in a real context.
 
 ![L&D intervention formats mapped to maturity levels](SCR-20260503-5.png)
-
-*High resolution : [open full image on GitHub](https://github.com/bilarikan/bilarikan.github.io/blob/main/content/posts/nine-levels-of-personal-ai-maturity/SCR-20260503-HQ5.png).*
 
 The harder lesson, and the one I keep returning to as a learning program owner, is that an AI acceleration team cannot do the AI project for the team and call it done, that's just a crutch. What matters is that we leave skills behind when the project ends. The maturity model gives us clear learning objectives and personas at every scale of effort, from a one-hour tutorial to a multi-month engagement, so the team we worked with can take the next project on themselves --- and possibly the one after that without us.
 
