@@ -5,7 +5,7 @@ description: "A personal AI maturity model in nine levels, the cliff between usi
 summary: "Most AI rollouts stall not because people lack tools, but because nobody named the cliff between using AI and building with it. Here is the nine-level model AI Spark is using inside Sage, the seam at level six, and the nine moments from my own path that map onto it."
 tags: ["ai", "agentic-ai", "learning-architecture", "l-and-d", "maturity-model", "personal-ai", "orchestration"]
 categories: ["learning-technology"]
-draft: true
+draft: false
 ---
 
 Last year many organizations had bought every employee a Microsoft 365 Copilot licence and are now wondering loudly, in measured corporate language most likely, why the productivity multiplication had not occurred. The honest answer is uncomfortable : tool access is not capability. The licence is the easy part, it's the [symbolic self-completion](https://en.wikipedia.org/wiki/Symbolic_self-completion_theory) that doesn't actually get you there. What sits between a Copilot seat and a productive person is a learning ladder that most rollouts quietly skip. In this post I want to walk through that ladder, name the cliff inside it, and share the journey I have actually walked --- not as a model of how it should be done, but as calibration for what each step feels like in practice.
