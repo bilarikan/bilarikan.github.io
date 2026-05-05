@@ -164,7 +164,7 @@ This is who is making decisions and who is making changes.
 {{< mermaid >}}
 flowchart TD
   human[Me<br/>review and direction]
-  agent[Cursor agent<br/>code and asset edits]
+  agent[Coding agent<br/>code and asset edits]
   skills[Editframe skills<br/>local guidance]
   human <--> agent
   skills --> agent
@@ -193,7 +193,7 @@ Each box here is something I could have edited by hand. The voiceover is generat
 
 ### The iteration loop
 
-This is the part that felt different from a normal video edit cycle. It looked less like driving a timeline and more like reviewing a branch.
+This is the part that felt different from a normal video edit cycle. It looked less like driving a timeline and more like reviewing and providing feedback.
 
 {{< mermaid >}}
 flowchart TD
@@ -261,7 +261,7 @@ In a traditional workflow, this cast feeds work into a single execution role, wi
 
 {{< mermaid >}}
 flowchart TD
-  subgraph stakeholders[Stakeholders providing input]
+  subgraph stakeholders[Stakeholder input]
     direction LR
     spec[Product team<br/>feature spec]
     lpo[Learning program owner<br/>learning brief]
@@ -286,7 +286,10 @@ flowchart TD
 
 The order of upstream handoffs varies by org. What stays consistent is that the work serializes through one execution role, and that every change goes back to that role.
 
-The pain points are predictable. Every change means reopening a project file, finding the right timeline, modifying it, exporting again, and hoping nothing else shifted. Localization is a separate redo of most of that work, per locale. Re-editing for a v1.1 patch a few weeks later means tracking down the project file and rebuilding mental context.
+The pain points are predictable. Every change means reopening a project file, finding the right timeline, modifying it, exporting again, and hoping nothing else shifted. Localization is a separate redo of most of that work, per locale. Re-editing for a v1.1 patch a few weeks later means tracking down the project file and rebuilding mental context. I'm already starting to hyperventilate just thinking about it...
+
+![Humorous image of fictitious hyperventilation area sign](Gemini_Generated_Image_hyperventilating.png)
+
 
 ### Code-as-video path
 
@@ -296,7 +299,7 @@ The same cast, but the medium is a repository instead of a project file, and the
 flowchart TD
   spec[Product team<br/>feature spec in repo]
   components[Approved reusable<br/>video components]
-  agent[Cursor agent<br/>assembles composition]
+  agent[Coding agent<br/>assembles composition]
   pr[Pull request<br/>composition + assets]
   lpo[Learning program owner<br/>review on PR]
   ldd[Learning designer and developer<br/>review on PR]
@@ -324,6 +327,47 @@ flowchart TD
 {{< /mermaid >}}
 
 The handoffs have not disappeared. The narrative still needs the marketing manager. The learning brief still needs the program owner. Copy still needs the content team. What changed is what each of those people is reviewing : a diff of text, an asset file, or a parameter change, instead of a re-rendered MP4 they have to scrub through to find what moved.
+
+### Code-as-video path when reviewers are not in the PR flow
+
+The path I just described assumes the stakeholders are comfortable opening a pull request, reading text and asset diffs, and leaving inline comments. That is true for some engineering-adjacent teams. It is often not true for marketing, learning, or product content reviewers, who reasonably expect to review the actual rendered video, not the code that produces it.
+
+That does not break the code-as-video model. It just changes the review surface.
+
+{{< mermaid >}}
+flowchart TD
+  spec[Product team<br/>feature spec in repo]
+  components[Approved reusable<br/>video components]
+  agent[Cursor agent<br/>assembles composition]
+  preview[Preview render<br/>local CLI or low-quality cloud]
+  surface[Review surface<br/>shared folder or video review tool]
+
+  subgraph stakeholders[Stakeholders reviewing the rendered video]
+    direction LR
+    lpo[Learning program owner]
+    ldd[Learning designer and developer]
+    pc[Product content team]
+    pmm[Product marketing manager]
+  end
+
+  coord[Coordinator<br/>producer, PM, or learning developer<br/>translates feedback into prompts]
+  cloud[Cloud render on approval<br/>parallel locales]
+  final[Final assets]
+
+  spec --> agent
+  components --> agent
+  agent --> preview
+  preview --> surface
+  surface --> stakeholders
+  stakeholders -->|comments| coord
+  coord -->|prompts| agent
+  surface -->|approval| cloud
+  cloud --> final
+{{< /mermaid >}}
+
+The agent and the component library stay the same. What changes is that the preview render is automatically posted to a surface the reviewers already use -- a shared video folder, a video review tool with timecoded comments, or a streaming preview link -- and a single coordinator (a producer, PM, or learning developer) translates their feedback into the next round of agent prompts. Reviewers comment on what they actually see. The composition stays in the repo, parameterized and reusable.
+
+The trade-off is one extra hop -- each review round is a render-and-post rather than a diff -- and a coordinator role that has to exist explicitly. The point is that the workflow degrades gracefully : PR-native review when the reviewers are technical, render-and-post review when they are not, and the underlying composition does not change in either case.
 
 ### Where the time savings show up
 
