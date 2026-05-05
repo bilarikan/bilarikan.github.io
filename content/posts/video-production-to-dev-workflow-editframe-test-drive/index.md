@@ -269,7 +269,7 @@ flowchart TD
     pmm[Product marketing manager<br/>release narrative]
   end
 
-  ldd[Learning designer and developer<br/>NLE timeline work]
+  ldd[Learning designer and developer<br/>video editing]
   exportv[Export MP4 per artifact]
   review[Stakeholder review]
   loc[Per-locale rework]
@@ -342,7 +342,7 @@ flowchart TD
   preview[Preview render<br/>local CLI or low-quality cloud]
   surface[Review surface<br/>shared folder or video review tool]
 
-  subgraph stakeholders[Stakeholders reviewing the rendered video]
+  subgraph stakeholders[Stakeholders review video]
     direction LR
     lpo[Learning program owner]
     ldd[Learning designer and developer]
@@ -375,7 +375,7 @@ I am not putting hours on these -- the numbers depend on the team. But the direc
 
 | Step | Traditional | Code-as-video |
 |---|---|---|
-| First draft of the video | Days to weeks of NLE work after the script is final | Hours, once the spec and approved components exist |
+| First draft of the video | Days to weeks of video edits after the script is final | Hours, once the spec and approved components exist |
 | Single edit round | Re-open project, edit timeline, re-export, redistribute | Edit a file, preview locally, push a commit |
 | Multi-stakeholder review | Sequential, gated by export | Parallel, gated by PR review |
 | Localization to 12 locales | 12 sequential redo passes | One parallel cloud render on release tag |
@@ -434,7 +434,7 @@ Two constraints worth naming directly :
 1. **An approved reusable component library.** Otherwise the agent is regenerating from scratch every time, which is exactly the failure mode I want to avoid. This is what experiment 05 is reserved for.
 2. **A real content review process.** Marketing and learning still have to sign off on text and visuals. The pull request is the place that happens. Without it, the workflow just produces faster bad video.
 
-> Outcome : experiment 01 succeeded as a local baseline. The hello-world path stays in Editframe's Free tier and uses no cloud infrastructure. That is enough to move to experiment 02, where the same loop has to absorb real release content.
+> Outcome : this first experiment succeeded as a local baseline. What happens when the same loop has to absorb and produce real release content ?
 
 ## What changes when this hits production -- the monetization model
 
@@ -449,7 +449,6 @@ Editframe's pricing has two parts that matter here.
    - Team for 4-10 employees, $49 per month.
    - Cloud for 11-20 employees, or anyone who needs cloud infrastructure, $99 per month plus usage.
    - Enterprise for 21 or more employees, custom.
-   For a Sage-sized organization, this is Enterprise territory.
 2. **Usage-based billing, only on Cloud :**
    - **Render minute** : $0.02 at 1080p (≤2 MP), $0.04 at 2K (≤4 MP), $0.07 at 4K (≤9 MP). Measured in 1-second increments, rounded up.
    - **Delivery minute** : $0.0009 per streamed minute via the Premium Player. Local SDK playback is not billed.
@@ -479,7 +478,7 @@ Delivery cost is harder to model without a streaming surface. If none of these a
 
 ### Concrete cost shape, traditional stack
 
-The same team, same volume, on a traditional NLE-driven workflow. These are illustrative public list prices, not Sage's actual licensing position. People time is excluded here on purpose, because the previous section already covered the time-savings shape.
+The same team, same volume, on a traditional video editing workflow. These are illustrative public list prices, not actual licensing position. People time is excluded here on purpose, because the previous section already covered the time-savings shape.
 
 1. Adobe Creative Cloud All Apps × 3 seats : roughly $80/mo per seat × 3 = $240/mo, or $720 per quarter.
 2. Stock footage and music subscription : roughly $40/mo, or $120 per quarter.
@@ -518,8 +517,6 @@ If this lands inside a product organization, three things need to be in place be
 1. A per-release render budget owned by the product team.
 2. Brand-safe template gating, so only approved reusable components can be cloud-rendered.
 3. A chargeback model so render usage is owned by the team that triggered it, the same way cloud compute usually is.
-
-> The boundary I want experiment 02 onwards to live closer to : the workflow stays inspectable, but the production path is honest about what costs money.
 
 ## Next experiment
 
