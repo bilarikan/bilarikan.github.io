@@ -1,5 +1,5 @@
 ---
-title: "Experiment 01 : Hello world with Editframe --- video production as a dev workflow"
+title: "Hello world with Editframe --- video production as a dev workflow"
 date: 2026-05-05
 description: "First experiment in treating video like code : scaffolding an Editframe project locally, iterating with an AI coding agent, and rendering a hello-world MP4 from the command line."
 summary: "Can video production start to look more like a dev workflow, where the composition is code, the output is reproducible, and the agent can help move through the rough edges? Experiment 01 -- a hello-world Editframe project, scaffolded, iterated, and rendered locally, with the failure points captured for the next pass."
@@ -216,20 +216,20 @@ This is what actually runs to produce the preview and the final MP4. The groupin
 
 {{< mermaid >}}
 flowchart TD
-  subgraph localOnly[Local only -- no metering]
+  subgraph localOnly ["Local only -- no metering"]
     direction LR
     source[Source files<br/>html, css, voice, subtitle]
-    elements[@editframe/elements<br/>web components and timeline]
+    elements["@editframe/elements<br/>web components and timeline"]
     vite[Vite dev server<br/>local preview]
     cli[Editframe CLI<br/>render command]
-    chrome[Local Chrome/Playwright<br/>headless render]
+    chrome["Local Chrome/Playwright<br/>headless render"]
   end
 
-  subgraph checkpoint[Human checkpoint]
+  subgraph checkpoint [Human checkpoint]
     browser[Browser preview]
   end
 
-  subgraph output[Final artifact]
+  subgraph output [Final artifact]
     mp4[hello-world.mp4]
   end
 
