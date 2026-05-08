@@ -286,23 +286,7 @@ The point worth flagging : in a traditional setup, those four streams converge l
 
 ## The four sources the agent read
 
-Before any of those four elements got assembled, the agent had to read four different sources of information about the intended video and merge them into a single plan :
-
-{{< mermaid >}}
-flowchart TD
-  codebase["Akaunting codebase<br/>resources/views/sales/invoices/<br/>presets.js<br/>public/img/"]
-  docs["Akaunting docs<br/>'Creating an Invoice'<br/>help-center page"]
-  forum["Akaunting forum<br/>SMTP / email setup<br/>recurring question"]
-  brand["Brand assets<br/>logo SVGs<br/>palette, fonts"]
-  agent["Coding agent<br/>9-phase plan<br/>scene components<br/>narration script"]
-  composition["Editframe composition<br/>71s, 1920x1080"]
-
-  codebase --> agent
-  docs --> agent
-  forum --> agent
-  brand --> agent
-  agent --> composition
-{{< /mermaid >}}
+Before any of those four elements got assembled, the agent had to read four different sources of information about the intended video and merge them into a single plan.
 
 Each source contributed something different. The codebase contributed structure --- the actual shape of the invoice form, the items table columns, the email modal. The docs contributed the narrative spine --- the help-center "Creating an Invoice" page that lays out the steps in plain English. The brand assets contributed the wrapper, no design needed. And the forum contributed the cautionary aside : a recurring thread about why "Send" looks like it works but emails never go out, because SMTP is configured separately under Settings → Email. That observation is not in the help-center article. It is the question first-time users hit. The agent surfaced it as a four-second narration aside in the send scene.
 
@@ -344,17 +328,7 @@ What replaced those tasks :
 2. **Maintaining the reusable primitives.** `AkauntingShell`, `InvoiceFormBody`, `Highlight`, `Subtitle` --- the four shared components that carried across all eight scenes. The next video starts with these already in place. That is a Developer's component library.
 3. **Owning the build scripts.** The narration is a build artifact, not a hand-edited file. If the script changes, the audio regenerates exactly to length. If a build script breaks, the Developer fixes it.
 
-The role still exists. It just looks more like a DevOps engineer maintaining an in-house tool than like a video editor running Premiere. That has implications for hiring and skill paths.
-
-## Where the role lines start to blur
-
-This is the thread I think L&D leaders should care about most, because the traditional org chart is built around the assumption that production work and editorial work live in different chairs. Once the agent owns the heavy production lifting, the boundary between Learning Designer and Learning Developer gets fuzzy in both directions :
-
-1. **A Designer who can write a clear prompt is now also doing some Developer work.** Drafting the kick-off prompt that produced the 9-phase plan, deciding which SMTP-style asides to include, calling for "shorten scene 2 and split scene 3" --- these are Designer instincts, expressed in a developer-shaped tool. A Designer who is comfortable in this loop produces work that used to need a Developer pass to land.
-2. **A Developer who maintains the component library is now also doing some Designer work.** Naming primitives, choosing the default timings, deciding whether the highlight rings should "lead" or "follow" the spoken cue --- these are taste decisions baked into engineering work. A Developer who is comfortable making those calls produces a component vocabulary.
-3. **The agent itself sits between the two roles.** It does Designer-shaped tasks (drafting the script, surfacing the SMTP aside) and Developer-shaped tasks (composing scenes, generating audio, rendering MP4) in the same loop. Neither role fully owns the agent's work, and neither role is fully replaced by it.
-
-The most valuable hire in two years is going to look more like a "writer-engineer" than either a pure Designer or a pure Developer --- someone who can sit in this loop and own a video end-to-end, with the agent doing the production weight. The traditional title that comes closest is "Learning Technologist" --- a hybrid role that has always sat between instructional design and engineering. That role gets bigger in this future, not smaller. It also gets harder to hire for, because the skill stack is wider.
+The role still exists. It just looks more like a junior engineer maintaining an in-house tool than like a video editor running Premiere. That has implications for hiring and skill paths.
 
 ## What stayed manual, and why
 
