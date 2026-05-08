@@ -22,7 +22,7 @@ The [first experiment](/posts/video-production-to-dev-workflow-editframe-test-dr
 
 I pointed Editframe at a real open-source product codebase --- [Akaunting](https://akaunting.com/) --- and asked an agent to produce a how-to walkthrough on creating an invoice, with every product UI scene rebuilt from the codebase rather than screen-recorded. After a review pass we cut trailing dead air and the final video came in at 71 seconds.
 
-The interesting part is not the seconds. It is what this workflow does to the way Learning Program Owners, Learning Designers, and Learning Developers traditionally split the work. In a traditional Learning and Development setup, a video like this passes through three or four hands. In this experiment, most of that flow stayed inside one feedback loop with a coding agent in the seat.
+In a traditional Learning and Development setup, a video like this passes through three or four hands. In this experiment, most of that flow stayed inside one feedback loop with a coding agent in the seat.
 
 In this post I want to walk through what the agent actually produced, then put the traditional L&D production flow side by side with the code-as-video version, role by role, and call out where the lines between those roles start to blur.
 
@@ -30,7 +30,7 @@ In this post I want to walk through what the agent actually produced, then put t
 
 ## Goal
 
-The goal for this pass was to test whether the code-as-video loop survives contact with a real product. If it does, the cost of producing instructional video for other SaaS product flows drops sharply --- most of the effort would be to provide the context and intent by providing marketing briefs, script outline with screen-mapping, learning objectives, etc. The practical implication for an L&D team : a documented product flow with a few brand assets becomes a candidate for repeatable, scriptable video, not a quote from a video production studio or availability expectation from the learning development team.
+The goal for this pass was to test whether the code-as-video loop survives contact with a real product. If it does, the cost of producing instructional video for other SaaS product flows drops sharply --- most of the effort would be to provide the context and intent by providing marketing briefs, script outline with screen-mapping, learning objectives, etc.
 
 ## Working assumption
 
@@ -71,7 +71,6 @@ Please ask me clarifying questions that will help you in planning.
 
 The agent's first move was not code. It triaged the brief into two piles : decisions it could make on its own from the project's working agreements (folder layout, file naming, gitignore patterns, which Editframe imports to use, which scene split was reasonable for a 90-second walkthrough), and decisions where the wrong default would change the shape of the workflow downstream or burn render minutes. The first pile it just handled. The second pile it surfaced as a short, structured set of questions :
 
-````markdown
 ```markdown
 The remaining questions are the ones I'd genuinely make different decisions on depending on your answer :
 
@@ -107,7 +106,6 @@ The remaining questions are the ones I'd genuinely make different decisions on d
 
 Locked. Here's the plan I'd like to run, given those answers. It maps cleanly onto the experiment 03 brief I scaffolded earlier, and explicitly flags every place I'd want you to pause me before I do something costly or commit to a render.
 ```
-````
 
 Worth flagging : this is what a useful clarifying-question pass looks like. Each question names the decision, lays out two to four options, includes the trade-off in plain language, and marks the one the agent would default to (✔). It is closer to a Learning Designer's pre-production checklist than to a developer ticket. I picked the marked default on every line --- the agent's reading of the brief was in alignment with mine --- which meant the entire scoping pass took a few minutes instead of a meeting.
 
@@ -115,7 +113,7 @@ The shape of these questions is also worth noticing. Three of the five (UI rende
 
 With my answers locked, the agent translated them into a plan :
 
-````markdown
+```markdown
 ## Plan -- experiment 03, "Create an invoice in Akaunting"
 
 > Outcome target : a ~90s 1920x1080 MP4, local CLI render only, all UI scenes rebuilt from the Akaunting codebase, narrated, with static subtitle blocks. Akaunting brand on open and close. One short forum-sourced aside about email setup near the send step.
@@ -173,7 +171,7 @@ If this plan looks right, I'll begin with Phase 1 (docs sync) right away, since 
 
 If you want to change anything -- different scene split, different narration shape, drop the SMTP aside, longer/shorter total duration, different brand-handling stance -- now is the cheap moment to say so.
 
-````
+```
 
 Two things in that plan are worth pulling apart from the artifact, because they are easy to miss reading it as one block :
 
