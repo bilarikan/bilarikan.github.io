@@ -122,15 +122,15 @@ I will walk the categories in the same order the diagram lists them. For each on
 
 ## Side-by-side --- the comparison I will keep coming back to
 
-| Tier | Paradigm | Language | Licensing | Best L&D fit |
+| Framework | Tier | Paradigm | Licensing | Best L&D fit |
 |---|---|---|---|---|
-| TypeScript and React | Components or scene graph to MP4 | TS / React | MIT (Remotion paid at scale) | Engineering-heavy L&D teams ; data-driven release pipelines |
-| Python | Programmatic animation | Python | MIT | Mathematical and explanatory content ; pipeline glue |
-| HTML and CSS | Web composition to MP4 | HTML and CSS (and React) | SaaS or Apache 2.0 | Brand-safe, agent-driven L&D content at scale |
-| JSON cloud API | JSON schema to cloud render | Any (REST) | SaaS | Template-and-data fan-out, no renderer to own |
-| AE-backed cloud API | AE template to cloud render | Any (REST) | SaaS | Existing AE-native design teams |
-| Hybrid (HTML plus avatar) | Deterministic base plus generative presenter | HTML and CSS plus AI | Apache 2.0 plus SaaS | Walkthroughs that need a presenter beat |
-| Fully generative | Prompt to video | Natural language | SaaS | Concept exploration, illustrative b-roll |
+| Remotion, Motion Canvas, Revideo | TypeScript and React | Components or scene graph to MP4 | MIT (Remotion paid at scale) | Engineering-heavy L&D teams ; data-driven release pipelines |
+| Manim, MoviePy | Python | Programmatic animation | MIT | Mathematical and explanatory content ; pipeline glue |
+| Editframe, HyperFrames | HTML and CSS | Web composition to MP4 | SaaS or Apache 2.0 | Brand-safe, agent-driven L&D content at scale |
+| Creatomate, Shotstack, JSON2Video | JSON cloud API | JSON schema to cloud render | SaaS | Template-and-data fan-out, no renderer to own |
+| Plainly | AE-backed cloud API | AE template to cloud render | SaaS | Existing AE-native design teams |
+| HyperFrames + HeyGen (avatar / AI presenter) | Hybrid (HTML plus avatar) | Deterministic base plus generative presenter | Apache 2.0 plus SaaS | Walkthroughs that need a presenter beat |
+| OpenAI Sora, Google Veo, Kling | Fully generative | Prompt to video | SaaS | Concept exploration, illustrative b-roll |
 
 The point of this table is not "pick a row". It is that each row is doing something genuinely different for the L&D function, and the wrong question is "which of these is best". The right question is "which of these belong in your pipeline, at which stage, for which kind of artefact ?".
 
