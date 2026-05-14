@@ -141,36 +141,45 @@ A second-order effect worth naming : as Claude makes a five-times speed-up on th
 
 ## Discussion three --- what the architecture actually looks like
 
-Now, the architecture. The [launch YouTube video](https://www.youtube.com/watch?v=lserpKbUDjc) walks through `/plan-payroll`. It is the cleanest end-to-end example because it touches two connectors, one skill, and a clear human approval step. Here is the same flow, drawn in the shape I find easiest to keep straight :
+Now, the architecture. The [launch YouTube video](https://www.youtube.com/watch?v=lserpKbUDjc) walks through `/plan-payroll`. It is the cleanest end-to-end example because it touches two connectors, one skill, and a clear human approval step. Here is the same flow, drawn as a sequence so it is easier to see what is being used at each stage :
 
 {{< mermaid >}}
-flowchart TD
-  owner["Small business owner<br/>'Plan my April 15 payroll'"]
-  cowork["Claude Cowork<br/>desktop app"]
-  plugin["Small Business plugin<br/>one-click install<br/>15 commands plus 15 skills"]
-  router["Workflow router<br/>maps intent to command"]
-  cmd["/plan-payroll command<br/>orchestrates the steps"]
-  skill["cash-flow-forecast skill<br/>building block<br/>activates automatically"]
-  qb["QuickBooks connector<br/>cash position<br/>payroll context"]
-  pp["PayPal connector<br/>incoming settlements<br/>invoice status"]
-  draft["Draft output<br/>30-day forecast<br/>ranked overdue list<br/>reminder emails"]
-  approval["Owner approves<br/>edits or rejects"]
-  send["Action executed<br/>reminders sent<br/>state written back"]
+sequenceDiagram
+  actor Owner as Small business owner
+  participant Cowork as Claude Cowork
+  participant Cmd as /plan-payroll command
+  participant Skill as cash-flow-forecast skill
+  participant QB as QuickBooks connector
+  participant PP as PayPal connector
 
-  owner --> cowork
-  cowork --> plugin
-  plugin --> router
-  router --> cmd
-  cmd --> skill
-  cmd --> qb
-  cmd --> pp
-  qb --> skill
-  pp --> skill
-  skill --> draft
-  draft --> approval
-  approval --> send
-  send --> qb
-  send --> pp
+  Owner->>Cowork: "Plan my April 15 payroll"
+  Note over Cowork,Cmd: SMB plugin router maps the intent to a command
+  Cowork->>Cmd: dispatch
+
+  Note over Cmd,PP: Read phase
+  Cmd->>QB: read cash position and payroll context
+  QB-->>Cmd: balances, obligations
+  Cmd->>PP: read incoming settlements and invoice status
+  PP-->>Cmd: settlements, overdue list
+
+  Note over Cmd,Skill: Compute phase
+  Cmd->>Skill: forecast, rank overdue, draft reminders
+  Skill-->>Cmd: 30-day forecast, ranked list, draft emails
+
+  Note over Owner,Cmd: Approval gate
+  Cmd-->>Cowork: draft output
+  Cowork-->>Owner: show plan and drafts
+  Owner->>Cowork: approve (or edit / reject)
+  Cowork->>Cmd: approval signal
+
+  Note over Cmd,PP: Write phase
+  Cmd->>PP: send reminder emails
+  PP-->>Cmd: send receipts
+  Cmd->>QB: log plan, write reminder state
+  QB-->>Cmd: confirmed
+
+  Cmd-->>Cowork: actions complete
+  Cowork-->>Owner: confirmation
 {{< /mermaid >}}
 
 A few things are worth pointing out in this diagram, because they are the structural reason the implications above land the way they do.
