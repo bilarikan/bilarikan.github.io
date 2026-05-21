@@ -20,5 +20,6 @@ title = "Bil Arikan"
     { github = "https://github.com/bilarikan" },
     { x-twitter = "https://x.com/bilarikan" },
     { bluesky = "https://bsky.app/profile/bil.arikan.ca" },
-    { tangled = "https://tangled.org/bil.arikan.ca" }
+    { tangled = "https://tangled.org/bil.arikan.ca" },
+    { mastodon = "https://mastodon.social/@bilarikan" }
   ]
