@@ -7,7 +7,7 @@ categories: ["experiments"]
 draft: false
 ---
 
-I already owned `arikan.ca`. I was already on Bluesky as `@bilarikan.bsky.social` and on Gander as `@bil.gander.social`. I was also starting to look at [Tangled](tangled.org) as a GitHub alternative --- it runs on ATProto for its social layer, which meant sorting out my identity there was part of the same problem. The question I wanted to answer : can I consolidate those into a single identity I actually control, anchored to my own domain?
+I already owned `arikan.ca`. I was already on Bluesky as `@bilarikan.bsky.social` and on Gander as `@bil.gander.social`. I was also starting to look at [Tangled](https://tangled.sh) as a GitHub alternative --- it runs on ATProto for its social layer, which meant sorting out my identity there was part of the same problem. The question I wanted to answer : can I consolidate those into a single identity I actually control, anchored to my own domain?
 
 ## Goal
 
@@ -106,15 +106,15 @@ The DID is visible to anyone looking at your Bluesky profile already. Committing
 
 {{< mermaid >}}
 flowchart TD
-    A[Own a domain<br/>arikan.ca] --> B[Get DID from<br/>Bluesky settings]
-    B --> C{Choose verification<br/>method}
-    C -->|DNS TXT| D[Add _atproto.bil TXT<br/>record in Namecheap]
-    C -->|Well-known file| E[Create static/.well-known/atproto-did<br/>in Hugo repo]
-    D --> F[Verify in Bluesky<br/>DNS Panel tab]
-    E --> G[Verify in Bluesky<br/>No DNS Panel tab]
-    F --> H[@bil.arikan.ca<br/>confirmed]
+    A["Own a domain<br/>arikan.ca"] --> B["Get DID from<br/>Bluesky settings"]
+    B --> C{"Choose verification<br/>method"}
+    C -->|DNS TXT| D["Add _atproto.bil TXT<br/>record in Namecheap"]
+    C -->|Well-known file| E["Create static/.well-known/atproto-did<br/>in Hugo repo"]
+    D --> F["Verify in Bluesky<br/>DNS Panel tab"]
+    E --> G["Verify in Bluesky<br/>No DNS Panel tab"]
+    F --> H["@bil.arikan.ca<br/>confirmed"]
     G --> H
-    H --> I[Log into Tangled<br/>with same handle + credentials]
+    H --> I["Log into Tangled<br/>with same handle + credentials"]
 {{< /mermaid >}}
 
 ## Next experiment
