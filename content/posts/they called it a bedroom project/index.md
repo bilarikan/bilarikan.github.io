@@ -1,5 +1,5 @@
 ---
-title: "They Called It a Bedroom Project --- What AI Builders Inside Large Orgs Actually Deal With"
+title: "You only built this because AI made it easy --- What AI Builders Inside Large Orgs Actually Deal With"
 date: 2026-06-07
 description: "Building AI prototypes inside a large enterprise is not just a technical challenge. It is a political one. In this post I want to name the patterns that make it hard --- the dismissals, the capture mechanisms, and the structural reasons good ideas get sidelined --- and show that they are documented, predictable, and supported by research. Then I share the tactics I have found that actually help."
 summary: "The first time an AI prototype I built got dismissed as a 'bedroom project', it felt personal. By the third time, I started to see a system. In this post I name the patterns AI builders hit inside large enterprises --- provenance attacks, role-legitimacy challenges, capture mechanisms, balkanised AI efforts, and the shape-shifter's double bind --- show that each one is documented in organisational research, and lay out the tactics I have tested for getting past the dismissal hump."
