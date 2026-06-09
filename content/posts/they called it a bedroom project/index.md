@@ -1,5 +1,5 @@
 ---
-title: "You only built this because AI made it easy --- What AI Builders Inside Large Orgs Actually Deal With"
+title: "What AI Builders Inside Large Orgs Actually Deal With When They Are Not Developers, Engineers, or Technologists"
 date: 2026-06-07
 description: "Building AI prototypes inside a large enterprise is not just a technical challenge. It is a political one. In this post I want to name the patterns that make it hard --- the dismissals, the capture mechanisms, and the structural reasons good ideas get sidelined --- and show that they are documented, predictable, and supported by research. Then I share the tactics I have found that actually help."
 summary: "The first time an AI prototype I built got dismissed as a 'bedroom project', it felt personal. By the third time, I started to see a system. In this post I name the patterns AI builders hit inside large enterprises --- provenance attacks, role-legitimacy challenges, capture mechanisms, balkanised AI efforts, and the shape-shifter's double bind --- show that each one is documented in organisational research, and lay out the tactics I have tested for getting past the dismissal hump."
@@ -22,19 +22,19 @@ I built a functioning proof of concept for a real-time multimodal in-product hel
 
 I showed it in live demos. I got genuine interest. I also got this :
 
-> _"Bil built this in his bedroom."_
+> _Bil built this in his bedroom._
 
-> _"Actual engineers need to look into this."_
+> _Actual engineers need to look into this._
 
-> _"This is a cool AI demo you could make because of AI --- but it isn't production-ready."_
+> _This is a cool AI demo you could make because of AI --- but it isn't production-ready._
 
-> _"Did you submit an AI Innovation intake form for this?"_
+> _Did you submit an AI Innovation intake form for this?_
 
-> _"Why didn't you build this with our official AI Innovation tools?"_
+> _Why didn't you build this with our official AI Innovation tools?_
 
-> _"This is great --- thanks. We're going to use it for our IT project. You can go back to your desk."_
+> _This is great --- thanks. We're going to use it for our IT project. You can go back to your desk._
 
-> _"This still needs to go through compliance."_
+> _This still needs to go through compliance._
 
 None of those are technical critiques. They are status critiques, procedural deflections, and capture moves dressed up as due diligence. None of them engage with what the demo showed.
 
