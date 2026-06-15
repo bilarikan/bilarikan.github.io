@@ -29,8 +29,8 @@
 - The `/deploy` slash command in `.claude/commands/deploy.md` contains the full deploy procedure
 - Deploy steps in brief:
   1. `hugo --gc --minify --cacheDir /tmp/hugo_cache`
-  2. `zip -r /tmp/site.zip public/ -x "*/\.DS_Store"`
-  3. Upload `/tmp/site.zip` via cPanel File Manager → `bil.arikan.ca/` → Extract → delete zip
+  2. `zip -r upload/site.zip public/ -x "*/\.DS_Store"` (saved to gitignored `upload/` folder in repo)
+  3. Upload `upload/site.zip` via cPanel File Manager → `bil.arikan.ca/` → Extract → delete zip
   4. Verify new post URL loads, then `git push origin main`
 - **Why not FTP:** FTP (lftp) works for updating existing files but new directories created via FTP
   return 404 from LiteSpeed. Root cause is likely CloudLinux CageFS --- FTP daemon and web server
