@@ -3,7 +3,7 @@
 ## Project Overview
 - Site: `bil.arikan.ca`
 - Stack: Hugo + Congo theme
-- Hosting: GitHub Pages (GitHub Actions)
+- Hosting: Namecheap Stellar (deployed via FTPS, not GitHub Pages)
 - Theme source: `themes/congo` as a git submodule (branch: `stable`)
 
 ## Working Rules For Future Agents
@@ -21,19 +21,20 @@
   - `git branch -D claude/<name>`
 - If the task is small enough that a PR would add more friction than value and the user has explicitly authorised a direct push to `main`, still print the cleanup block and still use `git pull --rebase origin main` (never a plain `git pull`) on the main working directory, because local `main` may have moved during the session.
 
-## Deployment Expectations
-- Deployment workflow: `.github/workflows/static.yml`
-- Workflow should:
-  - checkout with submodules
-  - install Hugo (extended)
-  - run `hugo --gc --minify`
-  - upload `public/` to Pages
-- Build output directory is `public/` (not `dist/`).
-
-## Domain And Publishing
-- Custom domain file must live at `static/CNAME`.
-- `static/CNAME` should contain exactly: `bil.arikan.ca`
-- Pushes to `main` trigger production deployment.
+## Deployment
+- Hosting: Namecheap Stellar shared hosting
+- Deploy method: FTPS via `lftp` (NOT GitHub Pages / GitHub Actions)
+- `static/CNAME` has been removed --- no longer needed
+- Pushing to `main` on GitHub is still done for version control, but does NOT trigger a production deploy
+- The `/deploy` slash command in `.claude/commands/deploy.md` contains the full deploy procedure
+- Deploy steps in brief:
+  1. Verify `BIL_FTP_PASS` env var is set; stop and prompt user if not
+  2. `hugo --gc --minify --cacheDir /tmp/hugo_cache`
+  3. `lftp` mirror: `public/` → `/home/arikfyxy/bil.arikan.ca/` on `ftp.arikan.ca`
+     - Host: `premium707.web-hosting.com`, user: `bil@arikan.ca`, password from `$BIL_FTP_PASS`
+     - Flags: `--reverse --delete --parallel=4`, explicit FTPS port 21
+  4. Report file count and confirm deploy complete
+- Build output directory is `public/` (not `dist/`)
 
 ## Content Structure
 - Primary sections: `content/posts/` and `content/projects/`
@@ -46,7 +47,7 @@
 - Keep publish-ready posts as `draft: false`.
 - Prefer concise sections and short paragraphs for readability.
 - If revising an old draft from outside repo content, create a new post under `content/posts/` and keep the original source draft untouched unless asked.
-- After a post is successfully created and verified locally (`hugo server`), commit and push to `main` so the GitHub Actions workflow deploys it to production.
+- After a post is successfully created and verified locally (`hugo server`), commit and push to `main` for version control, then run `/deploy` to deploy to production via FTPS.
 
 ## Author Voice And Writing Style (bil.arikan.ca)
 - Primary voice is first-person practitioner voice (`I`, `my`, `in this post I want to...`), not detached analyst voice.
@@ -93,6 +94,11 @@
   - Short "breakdown" subsections to explain actor/verb/object, risk/mitigation, or step intent.
 
 ## Visual Shortcodes (Congo)
+- Alert boxes use `alert` (NOT `callout` — that shortcode does not exist in this theme):
+  - `{{< alert "lightbulb" >}}` for tips
+  - `{{< alert "triangle-exclamation" >}}` for warnings
+  - `{{< alert "circle-info" >}}` for info
+  - `{{< /alert >}}`
 - Mermaid diagrams are supported via:
   - `{{< mermaid >}}`
   - `...diagram markup...`
