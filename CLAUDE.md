@@ -23,17 +23,18 @@
 
 ## Deployment
 - Hosting: Namecheap Stellar shared hosting
-- Deploy method: FTPS via `lftp` (NOT GitHub Pages / GitHub Actions)
+- Deploy method: zip upload via cPanel File Manager (NOT FTP, NOT GitHub Pages)
 - `static/CNAME` has been removed --- no longer needed
 - Pushing to `main` on GitHub is still done for version control, but does NOT trigger a production deploy
 - The `/deploy` slash command in `.claude/commands/deploy.md` contains the full deploy procedure
 - Deploy steps in brief:
-  1. Verify `BIL_FTP_PASS` env var is set; stop and prompt user if not
-  2. `hugo --gc --minify --cacheDir /tmp/hugo_cache`
-  3. `lftp` mirror: `public/` → `/home/arikfyxy/bil.arikan.ca/` on `ftp.arikan.ca`
-     - Host: `premium707.web-hosting.com`, user: `bil@arikan.ca`, password from `$BIL_FTP_PASS`
-     - Flags: `--reverse --delete --parallel=4`, explicit FTPS port 21
-  4. Report file count and confirm deploy complete
+  1. `hugo --gc --minify --cacheDir /tmp/hugo_cache`
+  2. `zip -r /tmp/site.zip public/ -x "*/\.DS_Store"`
+  3. Upload `/tmp/site.zip` via cPanel File Manager → `bil.arikan.ca/` → Extract → delete zip
+  4. Verify new post URL loads, then `git push origin main`
+- **Why not FTP:** FTP (lftp) works for updating existing files but new directories created via FTP
+  return 404 from LiteSpeed. Root cause is likely CloudLinux CageFS --- FTP daemon and web server
+  run in different filesystem contexts. cPanel File Manager extracts in the web server's context.
 - Build output directory is `public/` (not `dist/`)
 
 ## Content Structure
