@@ -241,9 +241,9 @@ A few notes from actually going through this :
 - **Above 4G Decoding** was already on. **CSM** was already off. Secure Boot was on and needed to be disabled.
 - **Boot order** confirmed: WD Blue SN570 1TB (NVMe) as Boot Option #1. This drive had a previous Proxmox installation --- the fresh install overwrites it cleanly.
 
-{{< figure src="_resources/found svm under the bios tweaker settings.jpeg" alt="SVM Mode found under Tweaker → Advanced CPU Settings on the B550 AORUS Pro AC" caption="SVM Mode on this board lives under the Tweaker tab, not under AMD CBS where most guides point. It was disabled by default." >}}
+{{< figure src="found svm under the bios tweaker settings.jpeg" alt="SVM Mode found under Tweaker → Advanced CPU Settings on the B550 AORUS Pro AC" caption="SVM Mode on this board lives under the Tweaker tab, not under AMD CBS where most guides point. It was disabled by default." >}}
 
-{{< figure src="_resources/exploring the bios for pre-flight check settings changes.jpeg" alt="IOMMU enabled under Settings, AMD CBS, NBIO Common Options on the B550 AORUS Pro AC" caption="IOMMU set to Enabled under AMD CBS → NBIO Common Options --- the path most B550 guides point to. The second IOMMU toggle under Miscellaneous controls the same feature." >}}
+{{< figure src="exploring the bios for pre-flight check settings changes.jpeg" alt="IOMMU enabled under Settings, AMD CBS, NBIO Common Options on the B550 AORUS Pro AC" caption="IOMMU set to Enabled under AMD CBS → NBIO Common Options --- the path most B550 guides point to. The second IOMMU toggle under Miscellaneous controls the same feature." >}}
 
 ---
 
@@ -251,7 +251,7 @@ A few notes from actually going through this :
 
 Proxmox VE 9.2, booted via USB (Balena Etcher on macOS), GUI installer. Boot device selection on the Gigabyte board is **F12** at POST --- with CSM disabled, the USB stick shows up as a single UEFI entry, so there's no legacy-vs-UEFI choice to get wrong.
 
-{{< figure src="_resources/selecting usb stick on book with F12.jpeg" alt="F12 boot device selection menu showing the Lexar USB drive" caption="F12 at POST brings up the one-time boot device menu. The USB installer appears as the UEFI Lexar entry." >}}
+{{< figure src="selecting usb stick on book with F12.jpeg" alt="F12 boot device selection menu showing the Lexar USB drive" caption="F12 at POST brings up the one-time boot device menu. The USB installer appears as the UEFI Lexar entry." >}}
 
 On the installer's welcome screen, the **Target Harddisk** dropdown lists every physical disk the installer can see. On this machine that's all four :
 
@@ -262,7 +262,7 @@ On the installer's welcome screen, the **Target Harddisk** dropdown lists every 
 | `/dev/sdb`     | 1.82 TiB   | WDC WD20EFPX-68C  | Data pool later --- not now |
 | `/dev/sdc`     | 1.82 TiB   | WDC WD20EFPX-68C  | Data pool later --- not now |
 
-{{< figure src="_resources/proxmox disk selection.jpeg" alt="Proxmox installer Target Harddisk dropdown showing all four physical disks" caption="The Target Harddisk dropdown lists all four disks by their /dev names. nvme0n1 is the install target; the other three --- including the Windows SSD --- stay out of the boot pool." >}}
+{{< figure src="proxmox disk selection.jpeg" alt="Proxmox installer Target Harddisk dropdown showing all four physical disks" caption="The Target Harddisk dropdown lists all four disks by their /dev names. nvme0n1 is the install target; the other three --- including the Windows SSD --- stay out of the boot pool." >}}
 
 Worth being deliberate here : the Windows SSD (`/dev/sda`, TEAM T253512GB) **is** visible to the installer. Proxmox isn't hiding it, and nothing stops you from selecting it by accident. The point isn't that Proxmox can't see Windows --- it's making sure that drive stays deselected. `sdb` and `sdc` are the two 2 TB WD HDDs; they're left out of the boot pool too, because they'll become a separate ZFS mirror data pool after install.
 
@@ -647,7 +647,7 @@ Three nodes, `Quorate: Yes`, quorum threshold 2-of-3. Losing any single node kee
 A 3-node cluster is the minimum for proper quorum. With 2 nodes, losing one drops you to 50% votes and the cluster suspends operations rather than risk a split-brain. With 3 nodes, one can go down for maintenance or failure and the other two keep running.
 {{< /alert >}}
 
-{{< figure src="_resources/proxmox webui after the cluster has been completed.png" alt="Proxmox web UI showing all three nodes in the pvelab1 cluster" caption="All three nodes under the pvelab1 cluster in the Proxmox web UI --- one management interface for the whole lab. The red line in the task log is the no-subscription apt repo failing on a fresh install : expected, and the first thing to sort before deploying anything." >}}
+{{< figure src="proxmox webui after the cluster has been completed.png" alt="Proxmox web UI showing all three nodes in the pvelab1 cluster" caption="All three nodes under the pvelab1 cluster in the Proxmox web UI --- one management interface for the whole lab. The red line in the task log is the no-subscription apt repo failing on a fresh install : expected, and the first thing to sort before deploying anything." >}}
 
 ---
 ## What's Next
