@@ -1,5 +1,5 @@
 ---
-title: "Designing and Building a 3-Node Proxmox Cluster for AI"
+title: "Local AI Lab --- Designing and Building a 3-Node Proxmox Cluster for AI"
 date: 2026-05-24T00:00:00-05:00
 description: "Design decisions first, then the actual build. How I set up a 3-node Proxmox cluster --- workstation plus two mini PCs --- to run local AI inference, homelab services, and a mobile-reachable agent stack."
 tags: [proxmox, homelab, ai-infra, proxmox-ai-lab]
@@ -162,58 +162,26 @@ For now, Ollama wins on setup simplicity and the fact that OpenClaw and Pi both 
 
 ## Service Map --- Full Picture
 
+**Node and service summary :**
+
+| Node | Role | Services / Containers | GPU |
+| ---- | ---- | --------------------- | --- |
+| pve1 — Workstation (Ryzen 7 5800X) | AI inference + agents | `inference-nvidia` (Ollama + CUDA), `inference-amd` (Ollama + ROCm), `openclaw` (AI gateway), `pi-agent` (coding agent) | RTX 5060 Ti → `inference-nvidia`; RX 6650 XT → `inference-amd` |
+| pve2 — ProDesk #1 (i5-7500T) | Network + monitoring | AdGuard Home, Caddy (reverse proxy + TLS), Prometheus + Grafana, Qdrant | --- |
+| pve3 — ProDesk #2 (i5-7500T) | Storage + personal | Nextcloud / Samba, Jellyfin, Restic / BorgBackup, Immich, Forgejo | --- |
+
+**Request flow :**
+
 {{< mermaid >}}
 graph TD
-  subgraph Node1["Node 1 — Workstation (Ryzen 7 5800X)"]
-    N1[Proxmox VE]
-    LXC_NV["inference-nvidia LXC<br/>Ollama + CUDA<br/>Codestral-22B"]
-    LXC_AMD["inference-amd LXC<br/>Ollama + ROCm<br/>conversational model"]
-    LXC_OC["openclaw LXC<br/>AI Gateway<br/>Telegram + Signal"]
-    LXC_PI["pi-agent LXC<br/>Coding Agent"]
-    GPU_NV["RTX 5060 Ti<br/>16 GB VRAM"]
-    GPU_AMD["RX 6650 XT<br/>8 GB VRAM"]
-    N1 --> LXC_NV
-    N1 --> LXC_AMD
-    N1 --> LXC_OC
-    N1 --> LXC_PI
-    GPU_NV -->|passthrough| LXC_NV
-    GPU_AMD -->|passthrough| LXC_AMD
-  end
-
-  subgraph Node2["Node 2 — ProDesk #1 (i5-7500T)"]
-    N2[Proxmox VE]
-    SVC_AGH["AdGuard Home<br/>DNS filtering"]
-    SVC_CADDY["Caddy<br/>Reverse Proxy / TLS"]
-    SVC_MON["Prometheus + Grafana<br/>Monitoring"]
-    SVC_QD["Qdrant<br/>Vector DB"]
-    N2 --> SVC_AGH
-    N2 --> SVC_CADDY
-    N2 --> SVC_MON
-    N2 --> SVC_QD
-  end
-
-  subgraph Node3["Node 3 — ProDesk #2 (i5-7500T)"]
-    N3[Proxmox VE]
-    SVC_NC["Nextcloud / Samba<br/>File Sync"]
-    SVC_JF["Jellyfin<br/>Media Server"]
-    SVC_BAK["Restic / BorgBackup<br/>Laptop Backups"]
-    SVC_IMM["Immich<br/>Photo Backup"]
-    SVC_FG["Forgejo<br/>Git Server"]
-    N3 --> SVC_NC
-    N3 --> SVC_JF
-    N3 --> SVC_BAK
-    N3 --> SVC_IMM
-    N3 --> SVC_FG
-  end
-
-  Signal["Signal (mobile)"] -->|message| LXC_OC
-  Telegram["Telegram (mobile)"] -->|message| LXC_OC
-  LXC_OC -->|coding task| LXC_PI
-  LXC_OC -->|inference| LXC_NV
-  LXC_PI -->|inference| LXC_NV
-  LXC_OC -->|RAG lookup| SVC_QD
-  SVC_CADDY -->|proxy| Node1
-  SVC_CADDY -->|proxy| Node3
+  Signal["Signal (mobile)"] -->|message| OC["openclaw<br/>(AI gateway — pve1)"]
+  Telegram["Telegram (mobile)"] -->|message| OC
+  OC -->|inference| NV["inference-nvidia<br/>Ollama + CUDA (pve1)"]
+  OC -->|coding task| PI["pi-agent (pve1)"]
+  PI -->|inference| NV
+  OC -->|RAG lookup| QD["Qdrant (pve2)"]
+  Caddy["Caddy (pve2)"] -->|proxy| OC
+  Caddy -->|proxy| PV3["pve3 services"]
 {{< /mermaid >}}
 
 ---
